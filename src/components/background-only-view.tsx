@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
 import { ExperienceNarrativeBanners } from "./experience-narrative-banners";
+import { GithubCatsLink } from "./github-cats-link";
 import { ProjectNarrativeBanners } from "./project-narrative-banners";
 import { SiteHeader } from "./site-header";
 import { MailPigeonLink } from "./mail-pigeon-link";
@@ -56,6 +57,7 @@ export function BackgroundOnlyView() {
         <ProjectNarrativeBanners isDay={isDay} ready={ready} />
         <TelegramBoothLink isDay={isDay} ready={ready} />
         <MailPigeonLink isDay={isDay} ready={ready} />
+        <GithubCatsLink isDay={isDay} ready={ready} />
         {SECTIONS.map(({ id, title, topPct, heightPct }) => (
           <section
             key={id}

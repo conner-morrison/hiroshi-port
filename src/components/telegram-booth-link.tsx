@@ -35,6 +35,7 @@ export function TelegramBoothLink({
           src="/telegram-booth-day.png"
           alt=""
           fill
+          unoptimized
           sizes="18vw"
           className={`object-contain object-bottom transition-opacity duration-700 ease-out ${
             showDay ? "opacity-100" : "opacity-0"
@@ -44,6 +45,7 @@ export function TelegramBoothLink({
           src="/telegram-booth-night.png"
           alt=""
           fill
+          unoptimized
           sizes="18vw"
           className={`object-contain object-bottom transition-opacity duration-700 ease-out ${
             showDay ? "opacity-0" : "opacity-100"
