@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
+import { ExperienceNarrativeBanners } from "./experience-narrative-banners";
 import { SiteHeader } from "./site-header";
 import { usePortfolioTheme } from "./theme-provider";
 
@@ -48,12 +49,13 @@ export function BackgroundOnlyView() {
             isDay ? "opacity-0" : "opacity-100"
           }`}
         />
+        <ExperienceNarrativeBanners isDay={isDay} ready={ready} />
         {SECTIONS.map(({ id, title, topPct, heightPct }) => (
           <section
             key={id}
             id={id}
             aria-label={title}
-            className="absolute right-0 left-0"
+            className="absolute right-0 left-0 z-10"
             style={{
               top: `${topPct}%`,
               height: `${heightPct}%`,
