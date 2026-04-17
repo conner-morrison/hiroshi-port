@@ -4,7 +4,10 @@ import Image from "next/image";
 import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
 import { ExperienceNarrativeBanners } from "./experience-narrative-banners";
+import { ProjectNarrativeBanners } from "./project-narrative-banners";
 import { SiteHeader } from "./site-header";
+import { MailPigeonLink } from "./mail-pigeon-link";
+import { TelegramBoothLink } from "./telegram-booth-link";
 import { usePortfolioTheme } from "./theme-provider";
 
 /** Must match exported `day_bg.jpg` / `night_bg.jpg` dimensions (pixels). */
@@ -50,12 +53,15 @@ export function BackgroundOnlyView() {
           }`}
         />
         <ExperienceNarrativeBanners isDay={isDay} ready={ready} />
+        <ProjectNarrativeBanners isDay={isDay} ready={ready} />
+        <TelegramBoothLink isDay={isDay} ready={ready} />
+        <MailPigeonLink isDay={isDay} ready={ready} />
         {SECTIONS.map(({ id, title, topPct, heightPct }) => (
           <section
             key={id}
             id={id}
             aria-label={title}
-            className="absolute right-0 left-0 z-10"
+            className="pointer-events-none absolute right-0 left-0 z-10"
             style={{
               top: `${topPct}%`,
               height: `${heightPct}%`,

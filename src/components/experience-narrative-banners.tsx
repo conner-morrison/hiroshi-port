@@ -12,8 +12,8 @@ type SlotStyle = { top: string; left: string; width: string };
 const BANNER_SLOTS: { id: string; style: SlotStyle }[] = [
   { id: "left-top-temple", style: { top: "25%", left: "27%", width: "30%" } },
   { id: "under-right-top-temple", style: { top: "31%", left: "67%", width: "30%" } },
-  { id: "middle-left-down-temple", style: { top: "37%", left: "28%", width: "30%" } },
-  { id: "left-middle-right-down-temple", style: { top: "43%", left: "46%", width: "30%" } },
+  { id: "middle-left-down-temple", style: { top: "35%", left: "28%", width: "30%" } },
+  { id: "left-middle-right-down-temple", style: { top: "41%", left: "46%", width: "30%" } },
 ];
 
 export function ExperienceNarrativeBanners({
