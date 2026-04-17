@@ -37,3 +37,31 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+@keyframes about-cloud-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(16px, -12px, 0);
+  }
+  55% {
+    transform: translate3d(-12px, 8px, 0);
+  }
+  80% {
+    transform: translate3d(10px, 4px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-about-cloud {
+  animation: about-cloud-drift 28s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-about-cloud {
+    animation: none !important;
+  }
+}

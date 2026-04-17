@@ -72,7 +72,9 @@ export function BackgroundOnlyView() {
             {id === "about" ? null : (
               <h2 className="sr-only">{title}</h2>
             )}
-            {id === "about" ? <AboutIntro /> : null}
+            {id === "about" ? (
+              <AboutIntro isDay={isDay} ready={ready} />
+            ) : null}
           </section>
         ))}
       </div>
