@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
+import { ExperienceHeadingBanner } from "./experience-heading-banner";
 import { ExperienceNarrativeBanners } from "./experience-narrative-banners";
 import { GithubCatsLink } from "./github-cats-link";
 import { ProjectNarrativeBanners } from "./project-narrative-banners";
@@ -15,12 +16,28 @@ import { usePortfolioTheme } from "./theme-provider";
 const BG_WIDTH = 341;
 const BG_HEIGHT = 1024;
 
+/** Shared vertical stack order for 経験 / 成果 / 技術 / 連携 banners (per section box). */
+const SECTION_HEADING_BANNER_BASE =
+  "pointer-events-none absolute top-[3%] z-[12]";
+
+/**
+ * Horizontal placement — edit each section’s X independently.
+ * Examples: `left-1/2 -translate-x-1/2` (center), `left-[12%]`, `right-[8%] left-auto`,
+ * `left-[45%] -translate-x-1/2` (shifted center).
+ */
+const SECTION_HEADING_BANNER_X = {
+  experience: "left-1/2 -translate-x-1/2",
+  projects: "left-2/9 -translate-x-1/2",
+  technology: "left-1/2 -translate-x-1/2",
+  contact: "left-17/24 -translate-x-1/2",
+} as const;
+
 const SECTIONS = [
   { id: "about" as const, title: "About", topPct: 0, heightPct: 20 },
   { id: "experience" as const, title: "Experience", topPct: 20, heightPct: 20 },
-  { id: "projects" as const, title: "Projects", topPct: 40, heightPct: 20 },
-  { id: "technology" as const, title: "Technology", topPct: 60, heightPct: 20 },
-  { id: "contact" as const, title: "Contact", topPct: 80, heightPct: 20 },
+  { id: "projects" as const, title: "Projects", topPct: 40, heightPct: 30 },
+  { id: "technology" as const, title: "Technology", topPct: 70, heightPct: 9 },
+  { id: "contact" as const, title: "Contact", topPct: 77, heightPct: 20 },
 ];
 
 export function BackgroundOnlyView() {
@@ -72,6 +89,38 @@ export function BackgroundOnlyView() {
             {id === "about" ? null : (
               <h2 className="sr-only">{title}</h2>
             )}
+            {id === "experience" ? (
+              <div
+                className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.experience}`}
+                aria-hidden
+              >
+                <ExperienceHeadingBanner isDay={isDay} />
+              </div>
+            ) : null}
+            {id === "projects" ? (
+              <div
+                className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.projects}`}
+                aria-hidden
+              >
+                <ExperienceHeadingBanner isDay={isDay} text="成果" />
+              </div>
+            ) : null}
+            {id === "technology" ? (
+              <div
+                className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.technology}`}
+                aria-hidden
+              >
+                <ExperienceHeadingBanner isDay={isDay} text="技術" />
+              </div>
+            ) : null}
+            {id === "contact" ? (
+              <div
+                className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.contact}`}
+                aria-hidden
+              >
+                <ExperienceHeadingBanner isDay={isDay} text="連携" />
+              </div>
+            ) : null}
             {id === "about" ? (
               <AboutIntro isDay={isDay} ready={ready} />
             ) : null}
