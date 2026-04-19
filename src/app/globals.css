@@ -65,3 +65,248 @@ body {
     animation: none !important;
   }
 }
+
+/* Experience section — sakura petals (wind varies per keyframe set) */
+.experience-sakura-petal {
+  position: absolute;
+  border-radius: 130% 75% 120% 85%;
+  background: linear-gradient(
+    145deg,
+    #fff5f9 0%,
+    #fbcfe8 35%,
+    #f9a8d4 65%,
+    #ec4899 100%
+  );
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  opacity: 0.92;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.experience-sakura-drift-a {
+  animation-name: experience-sakura-drift-a;
+}
+.experience-sakura-drift-b {
+  animation-name: experience-sakura-drift-b;
+}
+.experience-sakura-drift-c {
+  animation-name: experience-sakura-drift-c;
+}
+.experience-sakura-drift-d {
+  animation-name: experience-sakura-drift-d;
+}
+.experience-sakura-drift-e {
+  animation-name: experience-sakura-drift-e;
+}
+
+/* Vertical = `top` through the section; horizontal flutter = translateX only (longer zigzag path). */
+@keyframes experience-sakura-drift-a {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.95;
+  }
+  12% {
+    top: 10%;
+    transform: translate3d(22px, 0, 0) rotate(32deg);
+  }
+  24% {
+    top: 24%;
+    transform: translate3d(-20px, 0, 0) rotate(-24deg);
+  }
+  36% {
+    top: 38%;
+    transform: translate3d(28px, 0, 0) rotate(42deg);
+  }
+  48% {
+    top: 52%;
+    transform: translate3d(-26px, 0, 0) rotate(-36deg);
+  }
+  60% {
+    top: 64%;
+    transform: translate3d(18px, 0, 0) rotate(28deg);
+  }
+  72% {
+    top: 76%;
+    transform: translate3d(-14px, 0, 0) rotate(-18deg);
+  }
+  86% {
+    top: 92%;
+    transform: translate3d(10px, 0, 0) rotate(22deg);
+    opacity: 0.82;
+  }
+  100% {
+    top: 118%;
+    transform: translate3d(-6px, 0, 0) rotate(48deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-b {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(12deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  14% {
+    top: 12%;
+    transform: translate3d(-28px, 0, 0) rotate(-38deg);
+  }
+  28% {
+    top: 28%;
+    transform: translate3d(24px, 0, 0) rotate(44deg);
+  }
+  42% {
+    top: 44%;
+    transform: translate3d(-32px, 0, 0) rotate(-30deg);
+  }
+  56% {
+    top: 58%;
+    transform: translate3d(20px, 0, 0) rotate(36deg);
+  }
+  70% {
+    top: 72%;
+    transform: translate3d(-22px, 0, 0) rotate(-22deg);
+  }
+  84% {
+    top: 88%;
+    transform: translate3d(16px, 0, 0) rotate(40deg);
+    opacity: 0.75;
+  }
+  100% {
+    top: 118%;
+    transform: translate3d(12px, 0, 0) rotate(-42deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-c {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.92;
+  }
+  16% {
+    top: 14%;
+    transform: translate3d(30px, 0, 0) rotate(48deg);
+  }
+  32% {
+    top: 32%;
+    transform: translate3d(-24px, 0, 0) rotate(-44deg);
+  }
+  48% {
+    top: 50%;
+    transform: translate3d(26px, 0, 0) rotate(36deg);
+  }
+  64% {
+    top: 66%;
+    transform: translate3d(-30px, 0, 0) rotate(-32deg);
+  }
+  80% {
+    top: 84%;
+    transform: translate3d(18px, 0, 0) rotate(28deg);
+    opacity: 0.78;
+  }
+  100% {
+    top: 118%;
+    transform: translate3d(-20px, 0, 0) rotate(-52deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-d {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.88;
+  }
+  18% {
+    top: 16%;
+    transform: translate3d(-18px, 0, 0) rotate(26deg);
+  }
+  34% {
+    top: 34%;
+    transform: translate3d(32px, 0, 0) rotate(-34deg);
+  }
+  50% {
+    top: 52%;
+    transform: translate3d(-24px, 0, 0) rotate(40deg);
+  }
+  66% {
+    top: 68%;
+    transform: translate3d(22px, 0, 0) rotate(-28deg);
+  }
+  82% {
+    top: 86%;
+    transform: translate3d(-12px, 0, 0) rotate(20deg);
+    opacity: 0.8;
+  }
+  100% {
+    top: 118%;
+    transform: translate3d(8px, 0, 0) rotate(55deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-e {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(22deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.94;
+  }
+  15% {
+    top: 11%;
+    transform: translate3d(26px, 0, 0) rotate(-42deg);
+  }
+  30% {
+    top: 26%;
+    transform: translate3d(-30px, 0, 0) rotate(38deg);
+  }
+  45% {
+    top: 42%;
+    transform: translate3d(22px, 0, 0) rotate(-30deg);
+  }
+  60% {
+    top: 58%;
+    transform: translate3d(-26px, 0, 0) rotate(46deg);
+  }
+  75% {
+    top: 74%;
+    transform: translate3d(14px, 0, 0) rotate(-24deg);
+  }
+  90% {
+    top: 94%;
+    transform: translate3d(-10px, 0, 0) rotate(32deg);
+    opacity: 0.72;
+  }
+  100% {
+    top: 118%;
+    transform: translate3d(20px, 0, 0) rotate(-48deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-sakura-layer .experience-sakura-petal {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}

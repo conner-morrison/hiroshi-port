@@ -5,6 +5,7 @@ import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
 import { ExperienceHeadingBanner } from "./experience-heading-banner";
 import { ExperienceNarrativeBanners } from "./experience-narrative-banners";
+import { ExperienceSakuraPetals } from "./experience-sakura-petals";
 import { GithubCatsLink } from "./github-cats-link";
 import { ProjectNarrativeBanners } from "./project-narrative-banners";
 import { SiteHeader } from "./site-header";
@@ -90,12 +91,15 @@ export function BackgroundOnlyView() {
               <h2 className="sr-only">{title}</h2>
             )}
             {id === "experience" ? (
-              <div
-                className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.experience}`}
-                aria-hidden
-              >
-                <ExperienceHeadingBanner isDay={isDay} />
-              </div>
+              <>
+                <ExperienceSakuraPetals />
+                <div
+                  className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.experience}`}
+                  aria-hidden
+                >
+                  <ExperienceHeadingBanner isDay={isDay} />
+                </div>
+              </>
             ) : null}
             {id === "projects" ? (
               <div
