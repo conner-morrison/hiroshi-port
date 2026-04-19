@@ -16,9 +16,12 @@ import { LanguageToggle } from "./language-toggle";
 import { usePortfolioLocale } from "./language-provider";
 import { usePortfolioTheme } from "./theme-provider";
 
-/** Must match exported `day_bg.jpg` / `night_bg.jpg` dimensions (pixels). */
-const BG_WIDTH = 341;
-const BG_HEIGHT = 1024;
+/** Must match `public/portfolio-day-bg.jpg` / `portfolio-night-bg.jpg` dimensions (pixels). */
+const BG_WIDTH = 1279;
+const BG_HEIGHT = 3840;
+
+const dayBgSrc = "/portfolio-day-bg.jpg";
+const nightBgSrc = "/portfolio-night-bg.jpg";
 
 /** Shared vertical stack order for 経験 / 成果 / 技術 / 連携 banners (per section box). */
 const SECTION_HEADING_BANNER_BASE =
@@ -59,7 +62,7 @@ export function BackgroundOnlyView() {
         style={{ aspectRatio: `${BG_WIDTH} / ${BG_HEIGHT}` }}
       >
         <Image
-          src="/day_bg.jpg"
+          src={dayBgSrc}
           alt=""
           fill
           priority
@@ -69,7 +72,7 @@ export function BackgroundOnlyView() {
           }`}
         />
         <Image
-          src="/night_bg.jpg"
+          src={nightBgSrc}
           alt=""
           fill
           sizes="100vw"
