@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { portfolioMessages } from "@/i18n/portfolio-messages";
+import { usePortfolioLocale } from "./language-provider";
 
 const TELEGRAM_URL = "https://t.me/willow0522";
 
@@ -12,6 +16,8 @@ export function TelegramBoothLink({
   isDay: boolean;
   ready: boolean;
 }) {
+  const { locale, ready: langReady } = usePortfolioLocale();
+  const t = portfolioMessages[langReady ? locale : "ja"].links;
   const showDay = !ready || isDay;
 
   return (
@@ -25,7 +31,7 @@ export function TelegramBoothLink({
         bottom: "14%",
         transform: "translateY(4%)",
       }}
-      aria-label="Open Telegram chat"
+      aria-label={t.telegram}
     >
       <div
         className="relative w-full"

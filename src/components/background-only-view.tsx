@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { portfolioMessages } from "@/i18n/portfolio-messages";
 import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
 import { ExperienceHeadingBanner } from "./experience-heading-banner";
@@ -11,6 +12,8 @@ import { ProjectNarrativeBanners } from "./project-narrative-banners";
 import { SiteHeader } from "./site-header";
 import { MailPigeonLink } from "./mail-pigeon-link";
 import { TelegramBoothLink } from "./telegram-booth-link";
+import { LanguageToggle } from "./language-toggle";
+import { usePortfolioLocale } from "./language-provider";
 import { usePortfolioTheme } from "./theme-provider";
 
 /** Must match exported `day_bg.jpg` / `night_bg.jpg` dimensions (pixels). */
@@ -43,6 +46,9 @@ const SECTIONS = [
 
 export function BackgroundOnlyView() {
   const { theme, ready } = usePortfolioTheme();
+  const { locale, ready: langReady } = usePortfolioLocale();
+  const t = portfolioMessages[langReady ? locale : "ja"];
+  const englishTypography = Boolean(langReady && locale === "en");
   const isDay = !ready || theme === "light";
 
   return (
@@ -76,11 +82,11 @@ export function BackgroundOnlyView() {
         <TelegramBoothLink isDay={isDay} ready={ready} />
         <MailPigeonLink isDay={isDay} ready={ready} />
         <GithubCatsLink isDay={isDay} ready={ready} />
-        {SECTIONS.map(({ id, title, topPct, heightPct }) => (
+        {SECTIONS.map(({ id, topPct, heightPct }) => (
           <section
             key={id}
             id={id}
-            aria-label={title}
+            aria-label={t.sections[id]}
             className="pointer-events-none absolute right-0 left-0 z-10"
             style={{
               top: `${topPct}%`,
@@ -88,7 +94,7 @@ export function BackgroundOnlyView() {
             }}
           >
             {id === "about" ? null : (
-              <h2 className="sr-only">{title}</h2>
+              <h2 className="sr-only">{t.sections[id]}</h2>
             )}
             {id === "experience" ? (
               <>
@@ -97,7 +103,11 @@ export function BackgroundOnlyView() {
                   className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.experience}`}
                   aria-hidden
                 >
-                  <ExperienceHeadingBanner isDay={isDay} />
+                  <ExperienceHeadingBanner
+                    isDay={isDay}
+                    text={t.glassHeadings.experience}
+                    englishTypography={englishTypography}
+                  />
                 </div>
               </>
             ) : null}
@@ -106,7 +116,11 @@ export function BackgroundOnlyView() {
                 className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.projects}`}
                 aria-hidden
               >
-                <ExperienceHeadingBanner isDay={isDay} text="成果" />
+                <ExperienceHeadingBanner
+                  isDay={isDay}
+                  text={t.glassHeadings.projects}
+                  englishTypography={englishTypography}
+                />
               </div>
             ) : null}
             {id === "technology" ? (
@@ -114,7 +128,11 @@ export function BackgroundOnlyView() {
                 className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.technology}`}
                 aria-hidden
               >
-                <ExperienceHeadingBanner isDay={isDay} text="技術" />
+                <ExperienceHeadingBanner
+                  isDay={isDay}
+                  text={t.glassHeadings.technology}
+                  englishTypography={englishTypography}
+                />
               </div>
             ) : null}
             {id === "contact" ? (
@@ -122,7 +140,11 @@ export function BackgroundOnlyView() {
                 className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.contact}`}
                 aria-hidden
               >
-                <ExperienceHeadingBanner isDay={isDay} text="連携" />
+                <ExperienceHeadingBanner
+                  isDay={isDay}
+                  text={t.glassHeadings.contact}
+                  englishTypography={englishTypography}
+                />
               </div>
             ) : null}
             {id === "about" ? (
@@ -131,9 +153,8 @@ export function BackgroundOnlyView() {
           </section>
         ))}
       </div>
-      <span className="sr-only">
-        {isDay ? "Day landscape background" : "Night landscape background"}
-      </span>
+      <span className="sr-only">{t.srBackground(isDay)}</span>
+      <LanguageToggle />
       <CelestialThemeToggle />
     </div>
   );

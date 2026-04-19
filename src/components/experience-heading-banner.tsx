@@ -1,4 +1,5 @@
 import { Yuji_Syuku } from "next/font/google";
+import { englishDisplay } from "@/fonts/english-display";
 
 const brush = Yuji_Syuku({
   subsets: ["latin"],
@@ -51,9 +52,12 @@ function glamLineShadow(night: boolean, glow: number): string {
 export function ExperienceHeadingBanner({
   isDay,
   text = "経験",
+  englishTypography = false,
 }: {
   isDay: boolean;
   text?: string;
+  /** Latin / English copy: editorial serif + tighter tracking than brush Kanji. */
+  englishTypography?: boolean;
 }) {
   const night = !isDay;
   const g = night ? EXPERIENCE_BANNER_GLASS.night : EXPERIENCE_BANNER_GLASS.day;
@@ -68,10 +72,16 @@ export function ExperienceHeadingBanner({
     : `rgba(255,252,230,${g.veil})`;
 
   const lineH = `${ln.heightPx}px`;
+  const rootFont = englishTypography ? englishDisplay.className : brush.className;
 
   return (
     <div
-      className={`inline-flex min-w-0 flex-col items-stretch gap-2.5 ${brush.className}`}
+      className={`inline-flex min-w-0 flex-col items-stretch gap-2.5 ${rootFont}`}
+      style={
+        englishTypography
+          ? { fontFeatureSettings: '"kern" 1, "liga" 1' }
+          : undefined
+      }
     >
       <div
         aria-hidden
@@ -97,7 +107,7 @@ export function ExperienceHeadingBanner({
         }}
       >
         <span
-          className={`relative z-[1] inline-block w-full text-center text-[clamp(1.45rem,4.2vw,2.1rem)] tracking-[0.38em] pr-[0.38em] ${night ? "text-[#f7f5ef]" : "text-[#1a1610]"}`}
+          className={`relative z-[1] inline-block w-full text-center ${englishTypography ? "text-[clamp(1.2rem,3.2vw,1.75rem)] font-semibold tracking-[0.06em] sm:tracking-[0.08em]" : "text-[clamp(1.45rem,4.2vw,2.1rem)] tracking-[0.38em] pr-[0.38em]"} ${night ? "text-[#f7f5ef]" : "text-[#1a1610]"}`}
           style={{
             textShadow: night
               ? "0 1px 3px rgba(0,0,0,0.7), 0 0 14px rgba(0,0,0,0.3)"

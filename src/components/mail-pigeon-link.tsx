@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { portfolioMessages } from "@/i18n/portfolio-messages";
+import { usePortfolioLocale } from "./language-provider";
 
 const MAILTO = "mailto:hiroshi.kaji@excitox.com";
 
@@ -12,6 +16,8 @@ export function MailPigeonLink({
   isDay: boolean;
   ready: boolean;
 }) {
+  const { locale, ready: langReady } = usePortfolioLocale();
+  const t = portfolioMessages[langReady ? locale : "ja"].links;
   const showDay = !ready || isDay;
 
   return (
@@ -23,7 +29,7 @@ export function MailPigeonLink({
         bottom: "15%",
         transform: "translateX(-50%) translateY(-6%)",
       }}
-      aria-label="Send email to Hiroshi Kaji"
+      aria-label={t.mail}
     >
       <div
         className="relative w-full"
