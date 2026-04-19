@@ -1,10 +1,10 @@
 "use client";
 
-const PETAL_COUNT = 24;
-const DRIFT_VARIANTS = ["a", "c", "a", "a", "a"] as const;
+const PETAL_COUNT = 14;
+const DRIFT_VARIANTS = ["a", "b", "c", "d", "e"] as const;
 
 /** Seconds per loop — higher = slower drift (longer time across the band). */
-const DURATION_MIN = 22;
+const DURATION_MIN = 52;
 const DURATION_SPREAD = 20;
 
 /** Stable spread across width (deterministic, no hydration mismatch). */
@@ -38,7 +38,7 @@ export function ExperienceSakuraPetals() {
             className={`experience-sakura-petal experience-sakura-drift-${v}`}
             style={{
               left: `${leftPercent(i)}%`,
-              top: "26%",
+              top: "32%",
               width: `${w}px`,
               height: `${h}px`,
               animationDuration: `${duration}s`,

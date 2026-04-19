@@ -137,53 +137,58 @@ body {
     transform: translate3d(-14px, 0, 0) rotate(-18deg);
   }
   86% {
-    top: 92%;
+    top: 88%;
     transform: translate3d(10px, 0, 0) rotate(22deg);
     opacity: 0.82;
   }
   100% {
-    top: 118%;
+    top: 100%;
     transform: translate3d(-6px, 0, 0) rotate(48deg);
     opacity: 0;
   }
 }
 
+/* b–e use the same time stops as `a` (12%…86%) so path length / flutter density matches; only wind pattern differs. */
 @keyframes experience-sakura-drift-b {
   0% {
     top: -6%;
     transform: translate3d(0, 0, 0) rotate(12deg);
     opacity: 0;
   }
-  5% {
+  4% {
     opacity: 0.9;
   }
-  14% {
-    top: 12%;
+  12% {
+    top: 8%;
     transform: translate3d(-28px, 0, 0) rotate(-38deg);
   }
-  28% {
-    top: 28%;
+  24% {
+    top: 20%;
     transform: translate3d(24px, 0, 0) rotate(44deg);
   }
-  42% {
-    top: 44%;
+  36% {
+    top: 36%;
     transform: translate3d(-32px, 0, 0) rotate(-30deg);
   }
-  56% {
-    top: 58%;
-    transform: translate3d(20px, 0, 0) rotate(36deg);
+  48% {
+    top: 44%;
+    transform: translate3d(26px, 0, 0) rotate(36deg);
   }
-  70% {
-    top: 72%;
+  60% {
+    top: 61%;
     transform: translate3d(-22px, 0, 0) rotate(-22deg);
   }
-  84% {
-    top: 88%;
-    transform: translate3d(16px, 0, 0) rotate(40deg);
+  72% {
+    top: 72%;
+    transform: translate3d(20px, 0, 0) rotate(40deg);
+  }
+  86% {
+    top: 82%;
+    transform: translate3d(-16px, 0, 0) rotate(-28deg);
     opacity: 0.75;
   }
   100% {
-    top: 118%;
+    top: 90%;
     transform: translate3d(12px, 0, 0) rotate(-42deg);
     opacity: 0;
   }
@@ -195,32 +200,35 @@ body {
     transform: translate3d(0, 0, 0) rotate(-8deg);
     opacity: 0;
   }
-  6% {
+  4% {
     opacity: 0.92;
   }
-  16% {
-    top: 14%;
+  12% {
+    top: 11%;
     transform: translate3d(30px, 0, 0) rotate(48deg);
   }
-  32% {
-    top: 32%;
-    transform: translate3d(-24px, 0, 0) rotate(-44deg);
+  24% {
+    top: 28%;
+    transform: translate3d(-28px, 0, 0) rotate(-44deg);
+  }
+  36% {
+    top: 36%;
+    transform: translate3d(28px, 0, 0) rotate(40deg);
   }
   48% {
     top: 50%;
-    transform: translate3d(26px, 0, 0) rotate(36deg);
+    transform: translate3d(-30px, 0, 0) rotate(-36deg);
   }
-  64% {
-    top: 66%;
-    transform: translate3d(-30px, 0, 0) rotate(-32deg);
+  60% {
+    top: 64%;
+    transform: translate3d(24px, 0, 0) rotate(32deg);
   }
-  80% {
-    top: 84%;
-    transform: translate3d(18px, 0, 0) rotate(28deg);
-    opacity: 0.78;
+  72% {
+    top: 76%;
+    transform: translate3d(-22px, 0, 0) rotate(-28deg);
   }
   100% {
-    top: 118%;
+    top: 95%;
     transform: translate3d(-20px, 0, 0) rotate(-52deg);
     opacity: 0;
   }
@@ -232,33 +240,41 @@ body {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 0;
   }
-  5% {
+  4% {
     opacity: 0.88;
   }
-  18% {
-    top: 16%;
-    transform: translate3d(-18px, 0, 0) rotate(26deg);
+  12% {
+    top: 9%;
+    transform: translate3d(-20px, 0, 0) rotate(26deg);
   }
-  34% {
-    top: 34%;
+  24% {
+    top: 26%;
     transform: translate3d(32px, 0, 0) rotate(-34deg);
   }
-  50% {
+  36% {
+    top: 40%;
+    transform: translate3d(-26px, 0, 0) rotate(40deg);
+  }
+  48% {
     top: 52%;
-    transform: translate3d(-24px, 0, 0) rotate(40deg);
+    transform: translate3d(24px, 0, 0) rotate(-28deg);
   }
-  66% {
-    top: 68%;
-    transform: translate3d(22px, 0, 0) rotate(-28deg);
+  60% {
+    top: 62%;
+    transform: translate3d(-22px, 0, 0) rotate(34deg);
   }
-  82% {
-    top: 86%;
-    transform: translate3d(-12px, 0, 0) rotate(20deg);
+  72% {
+    top: 78%;
+    transform: translate3d(18px, 0, 0) rotate(-22deg);
+  }
+  86% {
+    top: 88%;
+    transform: translate3d(-14px, 0, 0) rotate(24deg);
     opacity: 0.8;
   }
   100% {
-    top: 118%;
-    transform: translate3d(8px, 0, 0) rotate(55deg);
+    top: 98%;
+    transform: translate3d(10px, 0, 0) rotate(55deg);
     opacity: 0;
   }
 }
@@ -269,37 +285,41 @@ body {
     transform: translate3d(0, 0, 0) rotate(22deg);
     opacity: 0;
   }
-  5% {
+  4% {
     opacity: 0.94;
   }
-  15% {
-    top: 11%;
+  12% {
+    top: 12%;
     transform: translate3d(26px, 0, 0) rotate(-42deg);
   }
-  30% {
+  24% {
     top: 26%;
     transform: translate3d(-30px, 0, 0) rotate(38deg);
   }
-  45% {
-    top: 42%;
-    transform: translate3d(22px, 0, 0) rotate(-30deg);
+  36% {
+    top: 38%;
+    transform: translate3d(24px, 0, 0) rotate(-32deg);
   }
-  60% {
-    top: 58%;
+  48% {
+    top: 52%;
     transform: translate3d(-26px, 0, 0) rotate(46deg);
   }
-  75% {
-    top: 74%;
-    transform: translate3d(14px, 0, 0) rotate(-24deg);
+  60% {
+    top: 60%;
+    transform: translate3d(22px, 0, 0) rotate(-26deg);
   }
-  90% {
-    top: 94%;
-    transform: translate3d(-10px, 0, 0) rotate(32deg);
+  72% {
+    top: 72%;
+    transform: translate3d(-18px, 0, 0) rotate(34deg);
+  }
+  86% {
+    top: 80%;
+    transform: translate3d(12px, 0, 0) rotate(-30deg);
     opacity: 0.72;
   }
   100% {
-    top: 118%;
-    transform: translate3d(20px, 0, 0) rotate(-48deg);
+    top: 88%;
+    transform: translate3d(18px, 0, 0) rotate(-48deg);
     opacity: 0;
   }
 }
