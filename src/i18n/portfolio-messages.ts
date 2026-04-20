@@ -60,6 +60,25 @@ export const portfolioMessages = {
         title: "AIワークフロービルダー",
         stackLine: "TypeScript、LangChain、PostgreSQL、Docker",
       },
+      raft2: {
+        title: "過去の人物とチャット",
+        stackLine: "ChatGPT、NLP、iOS、React Native、Android",
+      },
+      raft3: {
+        title: "AIオペレーティングシステム",
+        stackLine:
+          "TypeScript、Node.js、Gemini、Docker、RBAC、Redis",
+      },
+      raft4: {
+        title: "OKR管理プラットフォーム",
+        stackLine:
+          "React、Node.js、PostgreSQL、Amplitude、OpenAI、SaaS、HubSpot",
+      },
+      raft5: {
+        title: "コミュニティイベントネットワーク",
+        stackLine:
+          "Next.js、TypeScript、SCSS、Node.js、Python、Knex.js",
+      },
     },
   },
   en: {
@@ -120,6 +139,25 @@ export const portfolioMessages = {
       raft1: {
         title: "AI Workflow Builder",
         stackLine: "TypeScript, LangChain, PostgreSQL, Docker",
+      },
+      raft2: {
+        title: "Chat with the past",
+        stackLine: "ChatGPT, NLP, iOS, React Native, Android",
+      },
+      raft3: {
+        title: "AI Operating System",
+        stackLine:
+          "TypeScript, Node.js, Gemini, Docker, RBAC, Redis",
+      },
+      raft4: {
+        title: "OKR Management Platform",
+        stackLine:
+          "React, Node.js, PostgreSQL, Amplitude, OpenAI, SaaS, HubSpot",
+      },
+      raft5: {
+        title: "Community Events Network",
+        stackLine:
+          "Next.js, TypeScript, SCSS, Node.js, Python, Knex.js",
       },
     },
   },
