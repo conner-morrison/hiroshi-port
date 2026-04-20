@@ -67,6 +67,50 @@ body {
   }
 }
 
+/* Technology river — project narrative rafts (gentle multi-axis drift; ids in `ProjectNarrativeBanners`) */
+@keyframes technology-river-raft-float {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  17% {
+    transform: translate3d(0.32%, -0.42%, 1.25px) rotateX(0.22deg) rotateY(-0.32deg)
+      rotateZ(0.38deg);
+  }
+  34% {
+    transform: translate3d(-0.26%, -0.18%, -0.9px) rotateX(-0.18deg) rotateY(0.28deg)
+      rotateZ(-0.32deg);
+  }
+  52% {
+    transform: translate3d(0.18%, 0.48%, 1.6px) rotateX(0.28deg) rotateY(0.22deg)
+      rotateZ(0.18deg);
+  }
+  69% {
+    transform: translate3d(-0.34%, 0.22%, -1.2px) rotateX(-0.12deg) rotateY(-0.26deg)
+      rotateZ(-0.24deg);
+  }
+  86% {
+    transform: translate3d(0.12%, -0.28%, 0.5px) rotateX(0.15deg) rotateY(0.18deg)
+      rotateZ(0.14deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+.technology-river-raft-float {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation: technology-river-raft-float 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-river-raft-float {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
 /* Experience section — sakura petals (wind varies per keyframe set) */
 .experience-sakura-petal {
   position: absolute;

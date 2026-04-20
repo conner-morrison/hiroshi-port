@@ -36,6 +36,18 @@ const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
   { id: "raft-5", style: { top: "65%", left: "36%", width: "28%" } },
 ];
 
+/**
+ * Narrative rafts that sit over the **Technology** river band (~scroll 70–79%).
+ * They get a gentle float animation; add ids (e.g. `"raft-3"`) to include more slots.
+ */
+const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4", "raft-5"]);
+
+function technologyRiverRaftFloatDelay(id: string): string {
+  if (id === "raft-4") return "0s";
+  if (id === "raft-5") return "1.35s";
+  return "0s";
+}
+
 function narrativeTextShadow(showDay: boolean): string {
   return showDay
     ? "0 0 10px rgba(255,255,255,0.95), 0 0 20px rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.25)"
@@ -203,7 +215,10 @@ export function ProjectNarrativeBanners({
   const showDay = !ready || isDay;
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-[6]">
+    <div
+      className="pointer-events-none absolute inset-0 z-[6]"
+      style={{ perspective: "1400px" }}
+    >
       {PROJECT_SLOTS.map(({ id, style }) => {
         const overlayId = raftOverlayId(id);
         const hasOverlay = overlayId != null;
@@ -221,11 +236,20 @@ export function ProjectNarrativeBanners({
                     ? t.projectNarrative.raft5
                     : null;
 
+        const riverFloat = TECHNOLOGY_RIVER_RAFT_IDS.has(id);
+
         return (
           <div
             key={id}
-            className="absolute [filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))]"
-            style={style}
+            className={`absolute [filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))] ${
+              riverFloat ? "technology-river-raft-float" : ""
+            }`}
+            style={{
+              ...style,
+              ...(riverFloat
+                ? { animationDelay: technologyRiverRaftFloatDelay(id) }
+                : {}),
+            }}
             aria-hidden={!hasOverlay}
           >
             {hasOverlay && copy && overlayId ? (
