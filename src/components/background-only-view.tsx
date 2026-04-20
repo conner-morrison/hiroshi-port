@@ -2,6 +2,13 @@
 
 import { portfolioMessages } from "@/i18n/portfolio-messages";
 import { AboutIntro } from "./about-intro";
+import {
+  EXPERIENCE_DURAFLAME_BADGE_LAYOUT,
+  EXPERIENCE_GRAB_BADGE_LAYOUT,
+  EXPERIENCE_KEMIKAN_BADGE_LAYOUT,
+  EXPERIENCE_NUS_BADGE_LAYOUT,
+} from "@/config/experience-logo-badge-layout";
+import { ExperienceLogoBadge } from "./experience-logo-badge";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
 import { ExperienceHeadingBanner } from "./experience-heading-banner";
 import { ExperienceNarrativeBanners } from "./experience-narrative-banners";
@@ -105,6 +112,22 @@ export function BackgroundOnlyView() {
             {id === "experience" ? (
               <>
                 <ExperienceSakuraPetals />
+                <ExperienceLogoBadge
+                  layout={EXPERIENCE_NUS_BADGE_LAYOUT}
+                  isDay={isDay}
+                />
+                <ExperienceLogoBadge
+                  layout={EXPERIENCE_GRAB_BADGE_LAYOUT}
+                  isDay={isDay}
+                />
+                <ExperienceLogoBadge
+                  layout={EXPERIENCE_DURAFLAME_BADGE_LAYOUT}
+                  isDay={isDay}
+                />
+                <ExperienceLogoBadge
+                  layout={EXPERIENCE_KEMIKAN_BADGE_LAYOUT}
+                  isDay={isDay}
+                />
                 <div
                   className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.experience}`}
                   aria-hidden
