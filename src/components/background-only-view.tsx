@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { portfolioMessages } from "@/i18n/portfolio-messages";
 import { AboutIntro } from "./about-intro";
 import { CelestialThemeToggle } from "./celestial-theme-toggle";
@@ -16,9 +15,9 @@ import { LanguageToggle } from "./language-toggle";
 import { usePortfolioLocale } from "./language-provider";
 import { usePortfolioTheme } from "./theme-provider";
 
-/** Must match `public/portfolio-day-bg.jpg` / `portfolio-night-bg.jpg` dimensions (pixels). */
-const BG_WIDTH = 1279;
-const BG_HEIGHT = 3840;
+/** Must match `public/portfolio-day-bg.png` / `portfolio-night-bg.png` dimensions (pixels). */
+const BG_WIDTH = 341;
+const BG_HEIGHT = 1024;
 
 const dayBgSrc = "/portfolio-day-bg.jpg";
 const nightBgSrc = "/portfolio-night-bg.jpg";
@@ -58,25 +57,29 @@ export function BackgroundOnlyView() {
     <div className="relative w-full bg-black">
       <SiteHeader />
       <div
-        className="relative w-full max-w-none bg-black"
+        className="relative z-0 w-full max-w-none bg-black"
         style={{ aspectRatio: `${BG_WIDTH} / ${BG_HEIGHT}` }}
       >
-        <Image
+        {/* Native <img>: Next `Image` + `fill` can size to 0 when height comes only from `aspect-ratio`. */}
+        <img
           src={dayBgSrc}
           alt=""
-          fill
-          priority
-          sizes="100vw"
-          className={`object-cover object-center transition-opacity duration-700 ease-out ${
+          width={BG_WIDTH}
+          height={BG_HEIGHT}
+          decoding="async"
+          fetchPriority="high"
+          className={`absolute inset-0 z-0 size-full object-cover object-center transition-opacity duration-700 ease-out ${
             isDay ? "opacity-100" : "opacity-0"
           }`}
         />
-        <Image
+        <img
           src={nightBgSrc}
           alt=""
-          fill
-          sizes="100vw"
-          className={`object-cover object-center transition-opacity duration-700 ease-out ${
+          width={BG_WIDTH}
+          height={BG_HEIGHT}
+          decoding="async"
+          fetchPriority="high"
+          className={`absolute inset-0 z-0 size-full object-cover object-center transition-opacity duration-700 ease-out ${
             isDay ? "opacity-0" : "opacity-100"
           }`}
         />
