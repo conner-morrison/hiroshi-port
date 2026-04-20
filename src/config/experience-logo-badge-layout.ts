@@ -15,9 +15,10 @@ export type ExperienceLogoBadgeLayout = {
 };
 
 export const EXPERIENCE_NUS_BADGE_LAYOUT = {
-  imageSrc: "/about-nus-badge.png",
-  leftPct: 18,
-  topPct: 42,
+  /** Distinct filename avoids stale `/_next/image` + browser cache after asset swaps. */
+  imageSrc: "/about-nus-logo.png",
+  leftPct: 16,
+  topPct: 39,
   sizePct: 7,
   borderRadiusPct: 11,
   aspectRatioW: 1024,
@@ -27,8 +28,8 @@ export const EXPERIENCE_NUS_BADGE_LAYOUT = {
 
 export const EXPERIENCE_GRAB_BADGE_LAYOUT = {
   imageSrc: "/experience-grab-badge.png",
-  leftPct: 72,
-  topPct: 42,
+  leftPct: 79,
+  topPct: 53.5,
   sizePct: 7,
   borderRadiusPct: 11,
   aspectRatioW: 1024,
@@ -38,8 +39,8 @@ export const EXPERIENCE_GRAB_BADGE_LAYOUT = {
 
 export const EXPERIENCE_DURAFLAME_BADGE_LAYOUT = {
   imageSrc: "/experience-duraflame-badge.png",
-  leftPct: 44,
-  topPct: 58,
+  leftPct: 80,
+  topPct: 108,
   sizePct: 7,
   borderRadiusPct: 11,
   aspectRatioW: 1024,
@@ -50,8 +51,8 @@ export const EXPERIENCE_DURAFLAME_BADGE_LAYOUT = {
 /** ケミカン / Intelligent Chemical Safety */
 export const EXPERIENCE_KEMIKAN_BADGE_LAYOUT = {
   imageSrc: "/experience-kemikan-badge.png",
-  leftPct: 52,
-  topPct: 28,
+  leftPct: 20.8,
+  topPct: 81,
   sizePct: 7,
   borderRadiusPct: 11,
   aspectRatioW: 1024,

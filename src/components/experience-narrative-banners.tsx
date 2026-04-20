@@ -50,12 +50,12 @@ type SlotStyle = { top: string; left: string; width: string };
  * at temple-adjacent regions (tune percentages if your art crop differs).
  */
 const BANNER_SLOTS: { id: string; style: SlotStyle }[] = [
-  { id: LEFT_TOP_TEMPLE_ID, style: { top: "25%", left: "27%", width: "30%" } },
-  { id: UNDER_RIGHT_TOP_TEMPLE_ID, style: { top: "31%", left: "67%", width: "30%" } },
-  { id: MIDDLE_LEFT_DOWN_TEMPLE_ID, style: { top: "35%", left: "28%", width: "30%" } },
+  { id: LEFT_TOP_TEMPLE_ID, style: { top: "28.5%", left: "4%", width: "30%" } },
+  { id: UNDER_RIGHT_TOP_TEMPLE_ID, style: { top: "31.5%", left: "67%", width: "30%" } },
+  { id: MIDDLE_LEFT_DOWN_TEMPLE_ID, style: { top: "37%", left: "9%", width: "30%" } },
   {
     id: LEFT_MIDDLE_RIGHT_DOWN_TEMPLE_ID,
-    style: { top: "41%", left: "46%", width: "30%" },
+    style: { top: "42.3%", left: "68%", width: "30%" },
   },
 ];
 

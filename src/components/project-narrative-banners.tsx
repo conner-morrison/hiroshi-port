@@ -29,9 +29,9 @@ type SlotStyle = {
 };
 
 const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
-  { id: "raft-1", style: { top: "45%", left: "24%", width: "28%" } },
+  { id: "raft-1", style: { top: "55.5%", left: "23%", width: "28%" } },
   { id: "raft-2", style: { top: "50%", left: "34%", width: "28%" } },
-  { id: "raft-3", style: { top: "55%", left: "22%", width: "28%" } },
+  // { id: "raft-3", style: { top: "55%", left: "22%", width: "28%" } },
   { id: "raft-4", style: { top: "60%", left: "40%", width: "28%" } },
   { id: "raft-5", style: { top: "65%", left: "36%", width: "28%" } },
 ];

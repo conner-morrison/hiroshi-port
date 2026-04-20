@@ -47,6 +47,7 @@ export function ExperienceLogoBadge({
           src={layout.imageSrc}
           alt=""
           fill
+          unoptimized
           className="object-cover"
           style={{ objectPosition: layout.objectPosition }}
           sizes={`${Math.min(100, Math.ceil(layout.sizePct * 1.2))}vw`}

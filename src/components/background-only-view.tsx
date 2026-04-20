@@ -40,7 +40,7 @@ const SECTION_HEADING_BANNER_BASE =
  */
 const SECTION_HEADING_BANNER_X = {
   experience: "left-1/2 -translate-x-1/2",
-  projects: "left-2/9 -translate-x-1/2",
+  projects: "left-4/9 -translate-x-1/2",
   technology: "left-1/2 -translate-x-1/2",
   contact: "left-17/24 -translate-x-1/2",
 } as const;
@@ -48,7 +48,7 @@ const SECTION_HEADING_BANNER_X = {
 const SECTIONS = [
   { id: "about" as const, title: "About", topPct: 0, heightPct: 20 },
   { id: "experience" as const, title: "Experience", topPct: 20, heightPct: 20 },
-  { id: "projects" as const, title: "Projects", topPct: 40, heightPct: 30 },
+  { id: "projects" as const, title: "Projects", topPct: 45.5, heightPct: 30 },
   { id: "technology" as const, title: "Technology", topPct: 70, heightPct: 9 },
   { id: "contact" as const, title: "Contact", topPct: 77, heightPct: 20 },
 ];
