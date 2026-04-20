@@ -55,6 +55,12 @@ export const portfolioMessages = {
       leftTopTemple:
         "シンガポール国立大学でソフトウェア工学、アルゴリズム、データ構造、および現代の技術開発において強固な基盤を築き、学士（B.S.）を取得しました。",
     },
+    projectNarrative: {
+      raft1: {
+        title: "AIワークフロービルダー",
+        stackLine: "TypeScript、LangChain、PostgreSQL、Docker",
+      },
+    },
   },
   en: {
     nav: {
@@ -109,6 +115,12 @@ export const portfolioMessages = {
         "Designed and deployed enterprise AI platforms and retail intelligence engine and delivering scalable, secure, data-driven automation.",
       leftTopTemple:
         "Built a strong foundation in software engineering, algorithms, data structures, modern technology development and B.S. at the NUS",
+    },
+    projectNarrative: {
+      raft1: {
+        title: "AI Workflow Builder",
+        stackLine: "TypeScript, LangChain, PostgreSQL, Docker",
+      },
     },
   },
 } as const;
