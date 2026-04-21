@@ -77,11 +77,15 @@ export const portfolioMessages = {
         title: "OKR管理プラットフォーム",
         stackLine:
           "React、Node.js、PostgreSQL、Amplitude、OpenAI、SaaS、HubSpot",
+        hoverExplanation:
+          "Tabilityは、チームの方向性・説明責任・成果への集中を支える目標管理およびOKRプラットフォームです。目標設定、週次の進捗追跡、レポートの自動化を簡素化し、Jira、Asana、ClickUpなど日常の業務ツールとゴールをつなぎます。",
       },
       raft5: {
         title: "コミュニティイベントネットワーク",
         stackLine:
           "Next.js、TypeScript、SCSS、Node.js、Python、Knex.js",
+        hoverExplanation:
+          "Lumaは、ユーザーがイベントを作成し、予約済みのイベントを探せるプラットフォームです。チケットの購入・売買ができる仕組みも備えています。",
       },
     },
   },
@@ -161,11 +165,15 @@ export const portfolioMessages = {
         title: "OKR Management Platform",
         stackLine:
           "React, Node.js, PostgreSQL, Amplitude, OpenAI, SaaS, HubSpot",
+        hoverExplanation:
+          "Tability is a goal-tracking and OKR management platform that helps teams stay aligned, accountable, and focused on results. It simplifies setting objectives, tracking weekly progress, automating reports, and connecting goals with everyday work tools like Jira, Asana, and ClickUp.",
       },
       raft5: {
         title: "Community Events Network",
         stackLine:
           "Next.js, TypeScript, SCSS, Node.js, Python, Knex.js",
+        hoverExplanation:
+          "Luma is a platform that allows users to create and explore booked events. It provides a ticket purchasing system where users can buy and sell event tickets.",
       },
     },
   },

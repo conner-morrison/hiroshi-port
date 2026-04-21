@@ -147,8 +147,21 @@ body {
   }
 }
 
-/* Raft hover (raft-1 / raft-2) — glass panel (`ProjectNarrativeBanners`, `project-raft-1-hover-panel-layout.ts`) */
-.raft-1-hover-root:is(:hover, :focus-within) {
+/* Raft-2 / raft-4 / raft-5 hover: lift narrative layer above section glass headings and river links */
+.project-narrative-banners-layer:has(.raft-2-hover-root:hover),
+.project-narrative-banners-layer:has(.raft-2-hover-root:focus-within),
+.project-narrative-banners-layer:has(.raft-4-hover-root:hover),
+.project-narrative-banners-layer:has(.raft-4-hover-root:focus-within),
+.project-narrative-banners-layer:has(.raft-5-hover-root:hover),
+.project-narrative-banners-layer:has(.raft-5-hover-root:focus-within) {
+  z-index: 25;
+}
+
+/* Raft hover — glass panel (`ProjectNarrativeBanners`, `project-raft-1-hover-panel-layout.ts`) */
+.raft-1-hover-root:is(:hover, :focus-within),
+.raft-2-hover-root:is(:hover, :focus-within),
+.raft-4-hover-root:is(:hover, :focus-within),
+.raft-5-hover-root:is(:hover, :focus-within) {
   z-index: var(--raft-1-lift-z, 48);
 }
 
@@ -191,13 +204,17 @@ body {
     transform 0.4s cubic-bezier(0.33, 1.22, 0.48, 1);
 }
 
-.raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem {
+.raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
+.raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
+.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem {
   opacity: 1;
   height: var(--r1-stem-h1, 1.05rem);
   pointer-events: auto;
 }
 
-.raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
+.raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+.raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
   opacity: 1;
   transform: translate(-50%, 0) scale(1, 1);
   pointer-events: auto;
@@ -226,7 +243,10 @@ body {
     transition: none !important;
   }
 
-  .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
+  .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+  .raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+  .raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+  .raft-5-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
     transform: translate(-50%, 0) scale(1, 1);
   }
 }

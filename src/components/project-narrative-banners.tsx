@@ -45,7 +45,7 @@ const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4",
 
 const RAFT_HOVER_LAYOUT = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
 
-type RaftHoverDetailId = "raft-1" | "raft-2";
+type RaftHoverDetailId = "raft-1" | "raft-2" | "raft-4" | "raft-5";
 
 function technologyRiverRaftFloatDelay(id: string): string {
   if (id === "raft-1") return "0s";
@@ -368,7 +368,7 @@ export function ProjectNarrativeBanners({
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-[6]"
+      className="project-narrative-banners-layer pointer-events-none absolute inset-0 z-[6]"
       style={{ perspective: "1400px" }}
     >
       {PROJECT_SLOTS.map(({ id, style }) => {
@@ -394,7 +394,11 @@ export function ProjectNarrativeBanners({
             ? { raftId: "raft-1" as const, copy: t.projectNarrative.raft1 }
             : id === "raft-2" && hasOverlay && copy && overlayId === "raft-2"
               ? { raftId: "raft-2" as const, copy: t.projectNarrative.raft2 }
-              : null;
+              : id === "raft-4" && hasOverlay && copy && overlayId === "raft-4"
+                ? { raftId: "raft-4" as const, copy: t.projectNarrative.raft4 }
+                : id === "raft-5" && hasOverlay && copy && overlayId === "raft-5"
+                  ? { raftId: "raft-5" as const, copy: t.projectNarrative.raft5 }
+                  : null;
 
         const raftArticle =
           hasOverlay && copy && overlayId ? (
@@ -418,7 +422,17 @@ export function ProjectNarrativeBanners({
               riverFloat
                 ? ""
                 : "[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))]"
-            } ${raftHoverDetail ? "raft-1-hover-root pointer-events-auto" : ""}`}
+            } ${
+              raftHoverDetail
+                ? raftHoverDetail.raftId === "raft-2"
+                  ? "raft-2-hover-root pointer-events-auto"
+                  : raftHoverDetail.raftId === "raft-4"
+                    ? "raft-4-hover-root pointer-events-auto"
+                    : raftHoverDetail.raftId === "raft-5"
+                      ? "raft-5-hover-root pointer-events-auto"
+                      : "raft-1-hover-root pointer-events-auto"
+                : ""
+            }`}
             style={{
               ...style,
               ...(raftHoverDetail
