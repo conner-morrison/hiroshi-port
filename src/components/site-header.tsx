@@ -6,13 +6,13 @@ import { usePortfolioLocale } from "./language-provider";
 import { usePortfolioTheme } from "./theme-provider";
 
 const navShellDay =
-  "border-stone-900/20 bg-white/45 shadow-lg backdrop-blur-md";
+  "border-stone-900/20 bg-white/25 shadow-lg backdrop-blur-md";
 const navShellNight =
-  "border-white/20 bg-white/15 shadow-lg backdrop-blur-md";
+  "border-white/20 bg-[#080a0c]/35 shadow-lg backdrop-blur-md";
 const linkDay =
   "text-stone-900/90 hover:bg-stone-900/10 hover:text-stone-950 focus-visible:outline-amber-700";
 const linkNight =
-  "text-white/90 hover:bg-white/10 hover:text-white focus-visible:outline-amber-200";
+  "text-white/90 hover:bg-white/20 hover:text-white focus-visible:outline-amber-200";
 
 const NAV_IDS = [
   "about",
