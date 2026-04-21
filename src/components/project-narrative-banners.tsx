@@ -39,7 +39,7 @@ const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
 
 /**
  * Narrative rafts that sit over the **Technology** river band (~scroll 70–79%).
- * Motion amplitude: **`--technology-raft-motion-pct`** on `:root` in `globals.css` (0–100).
+ * Motion amplitude: **`--technology-raft-motion-pct`** on `:root` in `globals.css` (higher = stronger).
  */
 const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4", "raft-5"]);
 

@@ -7,11 +7,11 @@ const CLOUD_ASPECT = 682 / 512;
 
 /** Four clones: varied size & placement; timing feels wind-like. */
 const CLOUDS = [
-  { id: "a", top: "48%", left: "67%", widthPct: 30, duration: 28, delay: 0 },
-  { id: "b", top: "60%", left: "40%", widthPct: 5, duration: 36, delay: -7 },
-  { id: "e", top: "60%", left: "40%", widthPct: 10, duration: 36, delay: -7 },
-  { id: "c", top: "32%", left: "14%", widthPct: 16, duration: 23, delay: -11 },
-  { id: "d", top: "72%", left: "3%", widthPct: 23, duration: 32, delay: -4 },
+  { id: "a", top: "48%", left: "67%", widthPct: 30, duration: 22, delay: 0 },
+  { id: "b", top: "60%", left: "40%", widthPct: 5, duration: 29, delay: -7 },
+  { id: "e", top: "60%", left: "40%", widthPct: 10, duration: 29, delay: -7 },
+  { id: "c", top: "32%", left: "14%", widthPct: 16, duration: 19, delay: -11 },
+  { id: "d", top: "72%", left: "3%", widthPct: 23, duration: 26, delay: -4 },
 ] as const;
 
 export function AboutFloatingClouds({

@@ -6,11 +6,11 @@
   --background: #000000;
   --foreground: #fafafa;
   /**
-   * Technology river raft float — **motion scale (0–100)**. Same keyframe path & timing;
-   * only amplitude changes (`translate` / `rotate` / Z wobble). `0` = no movement.
+   * Technology river raft float — **motion scale** (`/ 100` in keyframes). Same path & timing;
+   * higher = stronger drift / tilt / Z wobble. `0` = no movement.
    * @see `@keyframes technology-river-raft-float`
    */
-  --technology-raft-motion-pct: 200;
+  --technology-raft-motion-pct: 280;
 }
 
 @theme inline {
@@ -56,13 +56,13 @@ body {
     transform: translate3d(0, 0, 0);
   }
   25% {
-    transform: translate3d(16px, -12px, 0);
+    transform: translate3d(28px, -22px, 0);
   }
   55% {
-    transform: translate3d(-12px, 8px, 0);
+    transform: translate3d(-22px, 16px, 0);
   }
   80% {
-    transform: translate3d(10px, 4px, 0);
+    transform: translate3d(18px, 10px, 0);
   }
   100% {
     transform: translate3d(0, 0, 0);
@@ -70,7 +70,7 @@ body {
 }
 
 .animate-about-cloud {
-  animation: about-cloud-drift 28s ease-in-out infinite;
+  animation: about-cloud-drift 24s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -142,7 +142,7 @@ body {
 .technology-river-raft-float {
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  animation: technology-river-raft-float 12s ease-in-out infinite;
+  animation: technology-river-raft-float 10s ease-in-out infinite;
   will-change: transform;
 }
 
