@@ -59,6 +59,8 @@ export const portfolioMessages = {
       raft1: {
         title: "AIワークフロービルダー",
         stackLine: "TypeScript、LangChain、PostgreSQL、Docker",
+        hoverExplanation:
+          "Flowiseは、ドラッグ＆ドロップのコンポーネントでAIエージェント、チャットボット、LLMワークフローを構築できるオープンソースのビジュアルプラットフォームです。統合、API、アナリティクス、セルフホスト型のデプロイにより、開発者が自動化システムを素早く作成・テスト・展開できるよう支援します。",
       },
       raft2: {
         title: "過去の人物とチャット",
@@ -139,6 +141,8 @@ export const portfolioMessages = {
       raft1: {
         title: "AI Workflow Builder",
         stackLine: "TypeScript, LangChain, PostgreSQL, Docker",
+        hoverExplanation:
+          "Flowise is an open-source visual platform for building AI agents, chatbots, and LLM workflows using drag-and-drop components. It helps developers quickly create, test, and deploy automation systems with integrations, APIs, analytics, and self-hosted deployment options.",
       },
       raft2: {
         title: "Chat with the past",

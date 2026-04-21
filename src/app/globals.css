@@ -147,13 +147,17 @@ body {
   }
 }
 
-/* Raft-1 hover — label “sprouts” upward from the raft (see `ProjectNarrativeBanners`) */
+/* Raft-1 hover — glass panel (`ProjectNarrativeBanners`, `project-raft-1-hover-panel-layout.ts`) */
+.raft-1-hover-root:is(:hover, :focus-within) {
+  z-index: var(--raft-1-lift-z, 48);
+}
+
 .raft-1-sprout-stem {
   position: absolute;
   left: 50%;
   top: 100%;
-  width: 2px;
-  height: 0.65rem;
+  width: var(--r1-stem-w, 2px);
+  height: var(--r1-stem-h0, 0.65rem);
   margin-top: -1px;
   transform: translateX(-50%);
   border-radius: 9999px;
@@ -164,6 +168,7 @@ body {
     rgba(180, 220, 160, 0.75) 100%
   );
   opacity: 0;
+  pointer-events: none;
   transition:
     opacity 0.28s ease,
     height 0.32s cubic-bezier(0.34, 1.45, 0.64, 1),
@@ -173,53 +178,46 @@ body {
 .raft-1-sprout-panel {
   position: absolute;
   left: 50%;
-  bottom: calc(100% + 0.45rem);
-  z-index: 25;
-  width: max-content;
-  max-width: min(17rem, 88vw);
-  transform: translate(-50%, 6px) scale(0.92, 0.35);
+  z-index: 3;
+  width: var(--r1-panel-width, min(92vw, 72rem));
+  max-width: var(--r1-panel-max-w, min(92vw, 72rem));
+  min-width: var(--r1-panel-min-w, min(88vw, max(30rem, 42vw)));
+  transform: translate(-50%, 10px) scale(0.96, 0.42);
   transform-origin: 50% 100%;
-  border-radius: 0.65rem 0.65rem 0.45rem 0.65rem;
-  padding: 0.55rem 0.75rem 0.6rem;
   opacity: 0;
   pointer-events: none;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(236, 252, 240, 0.98) 45%,
-    rgba(220, 245, 225, 0.95) 100%
-  );
-  box-shadow:
-    0 0 0 1px rgba(34, 100, 55, 0.18),
-    0 6px 18px rgba(0, 40, 20, 0.18);
   transition:
-    opacity 0.3s ease,
-    transform 0.38s cubic-bezier(0.33, 1.25, 0.52, 1),
-    filter 0.3s ease;
-  filter: blur(1.5px);
-}
-
-.dark .raft-1-sprout-panel {
-  background: linear-gradient(
-    165deg,
-    rgba(28, 40, 34, 0.96) 0%,
-    rgba(22, 36, 30, 0.98) 55%,
-    rgba(18, 32, 26, 0.96) 100%
-  );
-  box-shadow:
-    0 0 0 1px rgba(160, 210, 175, 0.2),
-    0 6px 22px rgba(0, 0, 0, 0.45);
+    opacity 0.32s ease,
+    transform 0.4s cubic-bezier(0.33, 1.22, 0.48, 1);
 }
 
 .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem {
   opacity: 1;
-  height: 0.85rem;
+  height: var(--r1-stem-h1, 1.05rem);
+  pointer-events: auto;
 }
 
 .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
   opacity: 1;
   transform: translate(-50%, 0) scale(1, 1);
-  filter: blur(0);
+  pointer-events: auto;
+}
+
+/* Image cell — width % / height % from vars on `.raft-1-sprout-panel` (`project-raft-1-hover-panel-layout.ts`) */
+.raft-1-sprout-panel__media {
+  position: relative;
+  min-width: 0;
+  width: var(--r1-img-w-pct, 40%);
+  height: var(--r1-img-h-pct, 80%);
+}
+
+@media (max-width: 639px) {
+  .raft-1-sprout-panel__media {
+    width: 100%;
+    height: auto;
+    min-height: 8rem;
+    max-height: min(48vh, 20rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -230,7 +228,6 @@ body {
 
   .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
     transform: translate(-50%, 0) scale(1, 1);
-    filter: none;
   }
 }
 

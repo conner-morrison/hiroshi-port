@@ -8,6 +8,7 @@ import {
   PROJECT_RAFT_OVERLAY_LAYOUT,
   type ProjectRaftOverlayLayout,
 } from "@/config/project-raft-overlay-layout";
+import { PROJECT_RAFT_1_HOVER_PANEL_LAYOUT } from "@/config/project-raft-1-hover-panel-layout";
 import { englishDisplay } from "@/fonts/english-display";
 import { usePortfolioLocale } from "./language-provider";
 
@@ -41,6 +42,8 @@ const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
  * Motion amplitude: **`--technology-raft-motion-pct`** on `:root` in `globals.css` (0–100).
  */
 const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4", "raft-5"]);
+
+const RAFT_1_HOVER_LAYOUT = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
 
 function technologyRiverRaftFloatDelay(id: string): string {
   if (id === "raft-1") return "0s";
@@ -192,6 +195,149 @@ function ProjectRaftOverlaySlot({
   );
 }
 
+function Raft1HoverSproutDetail({
+  imageSrc,
+  title,
+  stackLine,
+  explanation,
+  showDay,
+  locale,
+  langReady,
+}: {
+  imageSrc: string;
+  title: string;
+  stackLine: string;
+  explanation: string;
+  showDay: boolean;
+  locale: "ja" | "en";
+  langReady: boolean;
+}) {
+  const L = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
+  const raftLayout = PROJECT_RAFT_OVERLAY_LAYOUT["raft-1"];
+  const useSerif =
+    Boolean(langReady && locale === "en") && raftLayout.useSerifWhenEnglish;
+  const titleFont = useSerif ? englishDisplay.className : "font-sans";
+  const stackFont = useSerif ? englishDisplay.className : "font-sans";
+  const titleFontSize = `min(${L.titleFontCqw}cqw, ${L.titleFontRemMax}rem)`;
+  const stackFontSize = `min(${L.stackFontCqw}cqw, ${L.stackFontRemMax}rem)`;
+
+  const glassBg = showDay ? L.glassBgLight : L.glassBgDark;
+  const glassBorder = showDay ? L.glassBorderLight : L.glassBorderDark;
+
+  const panelStyle: CSSProperties = {
+    ["--r1-panel-max-w" as string]: L.panelMaxWidth,
+    ["--r1-panel-width" as string]: L.panelMaxWidth,
+    ["--r1-panel-min-w" as string]: L.panelMinWidth,
+    ["--r1-img-w-pct" as string]: `${L.imageWidthPctOfPanel}%`,
+    ["--r1-img-h-pct" as string]: `${L.imageHeightPctOfPanel}%`,
+    width: L.panelMaxWidth,
+    maxWidth: L.panelMaxWidth,
+    minWidth: L.panelMinWidth,
+    display: "flex",
+    flexDirection: "column",
+    height: L.panelHeight,
+    overflow: "hidden",
+    bottom: `calc(100% + ${L.panelGapAboveRaftRem}rem)`,
+    padding: `${L.panelPaddingRem}rem`,
+    borderRadius: `${L.panelBorderRadiusRem}rem`,
+    backdropFilter: `blur(${L.glassBlurPx}px) saturate(${L.glassBackdropSaturate})`,
+    WebkitBackdropFilter: `blur(${L.glassBlurPx}px) saturate(${L.glassBackdropSaturate})`,
+    background: glassBg,
+    border: `1px solid ${glassBorder}`,
+    boxShadow: showDay
+      ? "0 8px 28px rgba(0, 48, 28, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.55)"
+      : "0 12px 40px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+  };
+
+  const imageCellStyle: CSSProperties = {
+    alignSelf: "center",
+    flexShrink: 0,
+    minHeight: 0,
+    minWidth: 0,
+    borderRadius: `${L.imageCellBorderRadiusRem}rem`,
+  };
+
+  return (
+    <>
+      <div className="raft-1-sprout-stem" aria-hidden />
+      <div
+        className="raft-1-sprout-panel text-left [container-type:inline-size]"
+        role="tooltip"
+        style={panelStyle}
+      >
+        <div
+          className="flex min-h-0 min-w-0 flex-1 flex-col items-stretch sm:flex-row sm:items-stretch"
+          style={{ gap: `${L.columnGapRem}rem` }}
+        >
+          <div
+            className="raft-1-sprout-panel__media relative w-full shrink-0 overflow-hidden self-center ring-1 ring-black/15 dark:ring-white/20 sm:w-auto sm:self-center"
+            style={imageCellStyle}
+          >
+            <div className="pointer-events-none absolute inset-0 min-h-0 min-w-0">
+              <Image
+                src={imageSrc}
+                alt=""
+                fill
+                className={
+                  L.imageObjectFit === "cover"
+                    ? "object-cover"
+                    : "object-contain object-center"
+                }
+                style={{
+                  objectPosition: L.imageObjectPosition,
+                }}
+                sizes="(max-width: 640px) 90vw, 520px"
+              />
+            </div>
+          </div>
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col justify-center self-stretch overflow-y-auto">
+            <p
+              lang={locale === "en" ? "en" : "ja"}
+              className={`text-pretty ${raftLayout.titleTailwind} ${titleFont} ${
+                showDay ? "text-stone-950" : "text-stone-50"
+              }`}
+              style={{
+                fontSize: titleFontSize,
+                textShadow: narrativeTextShadow(showDay),
+                fontFeatureSettings: useSerif ? '"kern" 1, "liga" 1' : undefined,
+              }}
+            >
+              {title}
+            </p>
+            <p
+              lang={locale === "en" ? "en" : "ja"}
+              className={`text-pretty font-normal leading-snug ${
+                showDay ? "text-stone-800" : "text-stone-200"
+              }`}
+              style={{
+                marginTop: `${L.titleToBodyGapEm}em`,
+                fontSize: `${L.bodyFontRem}rem`,
+                textShadow: narrativeTextShadow(showDay),
+              }}
+            >
+              {explanation}
+            </p>
+            <p
+              lang={locale === "en" ? "en" : "ja"}
+              className={`text-pretty ${raftLayout.stackTailwind} ${stackFont} ${
+                showDay ? "text-stone-800" : "text-stone-100"
+              }`}
+              style={{
+                marginTop: `${L.bodyToStackGapEm}em`,
+                fontSize: stackFontSize,
+                textShadow: narrativeTextShadow(showDay),
+                fontFeatureSettings: useSerif ? '"kern" 1, "liga" 1' : undefined,
+              }}
+            >
+              {stackLine}
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 function raftOverlayId(id: string): RaftOverlayId | null {
   if (
     id === "raft-1" ||
@@ -241,52 +387,74 @@ export function ProjectNarrativeBanners({
         const riverFloat = TECHNOLOGY_RIVER_RAFT_IDS.has(id);
         const raft1Hover = id === "raft-1" && hasOverlay && copy;
 
+        const raftArticle =
+          hasOverlay && copy && overlayId ? (
+            <article className="relative w-full">
+              <ProjectRaftOverlaySlot
+                imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[overlayId]}
+                title={copy.title}
+                stackLine={copy.stackLine}
+                layout={PROJECT_RAFT_OVERLAY_LAYOUT[overlayId]}
+                showDay={showDay}
+                locale={locale}
+                langReady={langReady}
+              />
+            </article>
+          ) : null;
+
         return (
           <div
             key={id}
-            className={`absolute [filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))] ${
-              riverFloat ? "technology-river-raft-float" : ""
+            className={`absolute ${
+              riverFloat
+                ? ""
+                : "[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))]"
             } ${raft1Hover ? "raft-1-hover-root pointer-events-auto" : ""}`}
             style={{
               ...style,
-              ...(riverFloat
-                ? { animationDelay: technologyRiverRaftFloatDelay(id) }
+              ...(raft1Hover
+                ? ({
+                    ["--raft-1-lift-z" as string]: String(
+                      RAFT_1_HOVER_LAYOUT.liftZIndex
+                    ),
+                    ["--r1-stem-w" as string]: `${RAFT_1_HOVER_LAYOUT.stemWidthPx}px`,
+                    ["--r1-stem-h0" as string]: `${RAFT_1_HOVER_LAYOUT.stemCollapsedRem}rem`,
+                    ["--r1-stem-h1" as string]: `${RAFT_1_HOVER_LAYOUT.stemExpandedRem}rem`,
+                  } as CSSProperties)
                 : {}),
             }}
             aria-hidden={!hasOverlay}
             tabIndex={raft1Hover ? 0 : undefined}
             aria-label={
-              raft1Hover ? `${copy.title}. ${copy.stackLine}` : undefined
+              raft1Hover
+                ? `${t.projectNarrative.raft1.title}. ${t.projectNarrative.raft1.hoverExplanation}`
+                : undefined
             }
           >
             {hasOverlay && copy && overlayId ? (
               <>
-                <article className="relative w-full">
-                  <ProjectRaftOverlaySlot
-                    imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[overlayId]}
-                    title={copy.title}
-                    stackLine={copy.stackLine}
-                    layout={PROJECT_RAFT_OVERLAY_LAYOUT[overlayId]}
+                {riverFloat ? (
+                  <div
+                    className="[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))] technology-river-raft-float"
+                    style={{
+                      animationDelay: technologyRiverRaftFloatDelay(id),
+                    }}
+                  >
+                    {raftArticle}
+                  </div>
+                ) : (
+                  raftArticle
+                )}
+                {id === "raft-1" ? (
+                  <Raft1HoverSproutDetail
+                    imageSrc={PROJECT_RAFT_OVERLAY_IMAGE["raft-1"]}
+                    title={t.projectNarrative.raft1.title}
+                    stackLine={t.projectNarrative.raft1.stackLine}
+                    explanation={t.projectNarrative.raft1.hoverExplanation}
                     showDay={showDay}
                     locale={locale}
                     langReady={langReady}
                   />
-                </article>
-                {id === "raft-1" ? (
-                  <>
-                    <div className="raft-1-sprout-stem" aria-hidden />
-                    <div
-                      className="raft-1-sprout-panel text-left text-[0.72rem] leading-snug text-stone-800 shadow-sm dark:text-stone-100"
-                      role="tooltip"
-                    >
-                      <p className="font-semibold tracking-wide text-emerald-950 dark:text-emerald-100">
-                        {copy.title}
-                      </p>
-                      <p className="mt-1 text-[0.68rem] font-medium text-stone-700 dark:text-stone-300">
-                        {copy.stackLine}
-                      </p>
-                    </div>
-                  </>
                 ) : null}
               </>
             ) : (
