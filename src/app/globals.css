@@ -260,6 +260,26 @@ body {
   }
 }
 
+/**
+ * Experience narrative banners — copy over temple art (`ExperienceNarrativeBanners`).
+ * Set `--narrative-copy-font-pct` on the overlay wrapper (e.g. `115` = 15% larger than baseline).
+ */
+.experience-narrative-banner-copy {
+  font-size: min(
+    calc(3.8cqw * var(--narrative-copy-font-pct, 100) / 100),
+    calc(0.72rem * var(--narrative-copy-font-pct, 100) / 100)
+  );
+}
+
+@media (min-width: 640px) {
+  .experience-narrative-banner-copy {
+    font-size: min(
+      calc(3.5cqw * var(--narrative-copy-font-pct, 100) / 100),
+      calc(0.8rem * var(--narrative-copy-font-pct, 100) / 100)
+    );
+  }
+}
+
 /* Experience section — sakura petals (wind varies per keyframe set) */
 .experience-sakura-petal {
   position: absolute;

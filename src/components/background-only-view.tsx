@@ -47,7 +47,7 @@ const SECTION_HEADING_BANNER_X = {
 
 const SECTIONS = [
   { id: "about" as const, title: "About", topPct: 0, heightPct: 20 },
-  { id: "experience" as const, title: "Experience", topPct: 20, heightPct: 20 },
+  { id: "experience" as const, title: "Experience & Education", topPct: 20, heightPct: 20 },
   { id: "projects" as const, title: "Projects", topPct: 45.5, heightPct: 30 },
   { id: "technology" as const, title: "Technology", topPct: 70, heightPct: 9 },
   { id: "contact" as const, title: "Contact", topPct: 77, heightPct: 20 },

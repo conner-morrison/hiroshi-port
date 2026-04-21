@@ -15,6 +15,22 @@ import { usePortfolioLocale } from "./language-provider";
 /** Day PNG intrinsic ratio (width / height); night asset letterboxed inside this box. */
 const RAFT_ASPECT = 366 / 197;
 
+/**
+ * **100** = baseline project raft overlay + hover typography. **115** = 15% larger.
+ * Scales every `min(cqw, rem)` (and hover body `rem`) together — change this one number.
+ */
+const PROJECT_NARRATIVE_COPY_FONT_SIZE_PCT = 120;
+
+function projectNarrativeFontMin(cqw: number, remMax: number): string {
+  const n = PROJECT_NARRATIVE_COPY_FONT_SIZE_PCT;
+  return `min(calc(${cqw}cqw * ${n} / 100), calc(${remMax}rem * ${n} / 100))`;
+}
+
+function projectNarrativeRemScaled(rem: number): string {
+  const n = PROJECT_NARRATIVE_COPY_FONT_SIZE_PCT;
+  return `calc(${rem}rem * ${n} / 100)`;
+}
+
 type RaftOverlayId =
   | "raft-1"
   | "raft-2"
@@ -114,8 +130,14 @@ function ProjectRaftOverlaySlot({
   const titleFont = useSerif ? englishDisplay.className : "font-sans";
   const stackFont = useSerif ? englishDisplay.className : "font-sans";
 
-  const titleFontSize = `min(${layout.titleFontCqw}cqw, ${layout.titleFontRemMax}rem)`;
-  const stackFontSize = `min(${layout.stackFontCqw}cqw, ${layout.stackFontRemMax}rem)`;
+  const titleFontSize = projectNarrativeFontMin(
+    layout.titleFontCqw,
+    layout.titleFontRemMax
+  );
+  const stackFontSize = projectNarrativeFontMin(
+    layout.stackFontCqw,
+    layout.stackFontRemMax
+  );
 
   return (
     <div
@@ -230,8 +252,8 @@ function ProjectRaftHoverSproutDetail({
     Boolean(langReady && locale === "en") && raftLayout.useSerifWhenEnglish;
   const titleFont = useSerif ? englishDisplay.className : "font-sans";
   const stackFont = useSerif ? englishDisplay.className : "font-sans";
-  const titleFontSize = `min(${L.titleFontCqw}cqw, ${L.titleFontRemMax}rem)`;
-  const stackFontSize = `min(${L.stackFontCqw}cqw, ${L.stackFontRemMax}rem)`;
+  const titleFontSize = projectNarrativeFontMin(L.titleFontCqw, L.titleFontRemMax);
+  const stackFontSize = projectNarrativeFontMin(L.stackFontCqw, L.stackFontRemMax);
 
   const glassBg = showDay ? L.glassBgLight : L.glassBgDark;
   const glassBorder = showDay ? L.glassBorderLight : L.glassBorderDark;
@@ -323,7 +345,7 @@ function ProjectRaftHoverSproutDetail({
               }`}
               style={{
                 marginTop: `${L.titleToBodyGapEm}em`,
-                fontSize: `${L.bodyFontRem}rem`,
+                fontSize: projectNarrativeRemScaled(L.bodyFontRem),
                 textShadow: narrativeTextShadow(showDay),
               }}
             >

@@ -52,13 +52,13 @@ export const portfolioMessages = {
     },
     experienceNarrative: {
       underRightTopTemple:
-        "2025.1 ~ 現在 : US : セキュリティ、パフォーマンス、回復力、およびCI/CDを強化しながら、拡張性の高いフルスタックのマイクロサービスとAPIを構築および最適化しました。",
+        "2025.1 ~ 現在 : US \n セキュリティ、パフォーマンス、回復力、およびCI/CDを強化しながら、拡張性の高いフルスタックのマイクロサービスとAPIを構築および最適化しました。",
       middleLeftDownTemple:
-        "2021.11 ~ 2024.12 : 東京、日本 : 多言語対応のAI駆動型SDS処理および化学データプラットフォームを構築し、文書分類精度95%、稼働率99.9%を達成しました。",
+        "2021.11 ~ 2024.12 \n 東京、日本 : 多言語対応のAI駆動型SDS処理および化学データプラットフォームを構築し、文書分類精度95%、稼働率99.9%を達成しました。",
       leftMiddleRightDownTemple:
-        "2016.6 ~ 2021.10 : US : エンタープライズAIプラットフォームおよび小売インテリジェンスエンジンを設計・展開し、スケーラブルで安全なデータ駆動型自動化を実現。",
+        "2016.6 ~ 2021.10 \n US : エンタープライズAIプラットフォームおよび小売インテリジェンスエンジンを設計・展開し、スケーラブルで安全なデータ駆動型自動化を実現。",
       leftTopTemple:
-        "2012.8 ~ 2016.5 : シンガポール : シンガポール国立大学でソフトウェア工学、アルゴリズム、データ構造、および現代の技術開発において強固な基盤を築き、学士（B.S.）を取得しました。",
+        "2012.8 ~ 2016.5 \n シンガポール : シンガポール国立大学でソフトウェア工学、アルゴリズム、データ構造、および現代の技術開発において強固な基盤を築き、学士（B.S.）を取得しました。",
     },
     projectNarrative: {
       raft1: {
@@ -145,13 +145,13 @@ export const portfolioMessages = {
     },
     experienceNarrative: {
       underRightTopTemple:
-        "2025.1 ~ Present: US : Built and optimized scalable full-stack microservices and APIs while strengthening security, performance, resilience, and CI/CD.",
+        "2025.1 ~ Present: US \n Built and optimized scalable full-stack microservices and APIs while strengthening security, performance, resilience, and CI/CD.",
       middleLeftDownTemple:
-        "2021.11 ~ 2024.12: Tokyo, Japan : Built a multilingual AI-driven SDS processing and chemical data platform delivering 95% document classification accuracy, 99.9% uptime.",
+        "2021.11 ~ 2024.12: Tokyo, Japan \n Built a multilingual AI-driven SDS processing and chemical data platform delivering 95% document classification accuracy, 99.9% uptime.",
       leftMiddleRightDownTemple:
-        "2016.6 ~ 2021.10: US : Designed and deployed enterprise AI platforms and retail intelligence engine and delivering scalable, secure, data-driven automation.",
+        "2016.6 ~ 2021.10: US \n Designed and deployed enterprise AI platforms and retail intelligence engine and delivering scalable, secure, data-driven automation.",
       leftTopTemple:
-        "2012.8 ~ 2016.5: Singapore : Built a strong foundation in software engineering, algorithms, data structures, modern technology development and B.S. at the NUS",
+        "2012.8 ~ 2016.5: Singapore \n Built a strong foundation in software engineering, algorithms, data structures, modern technology development and B.S. at the NUS",
     },
     projectNarrative: {
       raft1: {

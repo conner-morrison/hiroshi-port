@@ -43,6 +43,12 @@ const NARRATIVE_COPY_ANCHOR_LEFT_MIDDLE_RIGHT_DOWN_PCT = 62;
  */
 const NARRATIVE_COPY_ANCHOR_UNDER_RIGHT_TOP_PCT = 62;
 
+/**
+ * **100** = default narrative banner font size. **115** = 15% larger (scales both
+ * mobile and `sm` caps together). Wired to `--narrative-copy-font-pct` in `globals.css`.
+ */
+const NARRATIVE_COPY_FONT_SIZE_PCT = 120;
+
 type SlotStyle = { top: string; left: string; width: string };
 
 /**
@@ -78,11 +84,12 @@ function NarrativeCopyOverlay({
       style={{
         top: `${anchorTopPct}%`,
         transform: "translateY(-50%)",
+        ["--narrative-copy-font-pct" as string]: String(NARRATIVE_COPY_FONT_SIZE_PCT),
       }}
     >
       <p
         lang={locale === "en" ? "en" : "ja"}
-        className={`max-h-full w-full max-w-[96%] text-pretty text-center font-medium leading-snug tracking-wide [font-size:min(3.8cqw,0.72rem)] sm:[font-size:min(3.5cqw,0.8rem)] ${
+        className={`experience-narrative-banner-copy max-h-full w-full max-w-[96%] text-pretty text-center font-medium leading-snug tracking-wide ${
           langReady && locale === "en"
             ? englishDisplay.className
             : "font-sans"
