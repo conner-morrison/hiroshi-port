@@ -64,7 +64,7 @@ export function BackgroundOnlyView() {
     <div className="relative w-full bg-black">
       <SiteHeader />
       <div
-        className="relative z-0 w-full max-w-none bg-black"
+        className="relative z-0 -mt-[9.75rem] w-full max-w-none bg-black sm:-mt-[10.25rem]"
         style={{ aspectRatio: `${BG_WIDTH} / ${BG_HEIGHT}` }}
       >
         {/* Native <img>: Next `Image` + `fill` can size to 0 when height comes only from `aspect-ratio`. */}

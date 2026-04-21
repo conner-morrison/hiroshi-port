@@ -25,6 +25,12 @@ html {
   scroll-behavior: smooth;
   /* Fixed sun/moon only; in-flow header scrolls away */
   scroll-padding-top: 5rem;
+  /* Matches hero sky so subpixel gaps / header padding do not show body #000 as a hairline */
+  background-color: #9bbdd4;
+}
+
+html.dark {
+  background-color: #060d14;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -40,7 +46,7 @@ body {
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
