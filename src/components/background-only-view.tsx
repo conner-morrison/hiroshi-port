@@ -112,8 +112,6 @@ export function BackgroundOnlyView() {
             {id === "experience" ? (
               <>
                 <ExperienceSakuraPetals />
-<<<<<<< HEAD
-=======
                 <ExperienceLogoBadge
                   layout={EXPERIENCE_NUS_BADGE_LAYOUT}
                   isDay={isDay}
@@ -130,20 +128,15 @@ export function BackgroundOnlyView() {
                   layout={EXPERIENCE_KEMIKAN_BADGE_LAYOUT}
                   isDay={isDay}
                 />
->>>>>>> recover-detached
                 <div
                   className={`${SECTION_HEADING_BANNER_BASE} ${SECTION_HEADING_BANNER_X.experience}`}
                   aria-hidden
                 >
-<<<<<<< HEAD
-                  <ExperienceHeadingBanner isDay={isDay} />
-=======
                   <ExperienceHeadingBanner
                     isDay={isDay}
                     text={t.glassHeadings.experience}
                     englishTypography={englishTypography}
                   />
->>>>>>> recover-detached
                 </div>
               </>
             ) : null}

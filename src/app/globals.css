@@ -79,198 +79,6 @@ body {
   }
 }
 
-<<<<<<< HEAD
-/* --- Experience section: sakura petals (wind-like drift) --- */
-.experience-sakura-petal {
-  position: absolute;
-  width: 10px;
-  height: 14px;
-  margin-left: -5px;
-  margin-top: -7px;
-  border-radius: 120% 4% 120% 4% / 140% 4% 90% 4%;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 252, 254, 0.96) 0%,
-    #ffd6e8 38%,
-    #f9a8c8 72%,
-    #e85d8e 100%
-  );
-  box-shadow:
-    0 0 7px rgba(255, 182, 210, 0.42),
-    inset 1px -1px 0 rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  transform-origin: 50% 28%;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: var(--sakura-dur, 16s);
-  animation-delay: var(--sakura-delay, 0s);
-  /* Vertical motion uses `top` % of the experience band (not vh), so petals
-     traverse the full section instead of vanishing past a short clip box. */
-  will-change: top, transform, opacity;
-}
-
-.experience-sakura-petal--0 {
-  animation-name: experience-sakura-path-a;
-}
-.experience-sakura-petal--1 {
-  animation-name: experience-sakura-path-b;
-}
-.experience-sakura-petal--2 {
-  animation-name: experience-sakura-path-c;
-}
-.experience-sakura-petal--3 {
-  animation-name: experience-sakura-path-d;
-}
-
-@keyframes experience-sakura-path-a {
-  0% {
-    top: -8%;
-    transform: translate3d(0, 0, 0) rotate(-14deg) scale(0.92);
-    opacity: 0;
-  }
-  4% {
-    opacity: 0.88;
-  }
-  10% {
-    opacity: 0.9;
-  }
-  18% {
-    top: 16%;
-    transform: translate3d(14px, 0, 0) rotate(22deg) scale(1);
-  }
-  38% {
-    top: 38%;
-    transform: translate3d(-12px, 0, 0) rotate(-28deg) scale(0.95);
-  }
-  58% {
-    top: 58%;
-    transform: translate3d(18px, 0, 0) rotate(18deg) scale(1.02);
-  }
-  78% {
-    top: 82%;
-    transform: translate3d(-10px, 0, 0) rotate(-20deg) scale(0.94);
-  }
-  92% {
-    opacity: 0.75;
-  }
-  100% {
-    top: 118%;
-    transform: translate3d(6px, 0, 0) rotate(36deg) scale(0.88);
-    opacity: 0;
-  }
-}
-
-@keyframes experience-sakura-path-b {
-  0% {
-    top: -6%;
-    transform: translate3d(6px, 0, 0) rotate(16deg) scale(0.93);
-    opacity: 0;
-  }
-  5% {
-    opacity: 0.86;
-  }
-  12% {
-    opacity: 0.9;
-  }
-  22% {
-    top: 20%;
-    transform: translate3d(-16px, 0, 0) rotate(-24deg) scale(1);
-  }
-  44% {
-    top: 42%;
-    transform: translate3d(12px, 0, 0) rotate(28deg) scale(0.96);
-  }
-  64% {
-    top: 64%;
-    transform: translate3d(-20px, 0, 0) rotate(-14deg) scale(1.03);
-  }
-  84% {
-    top: 90%;
-    transform: translate3d(10px, 0, 0) rotate(20deg) scale(0.91);
-  }
-  94% {
-    opacity: 0.7;
-  }
-  100% {
-    top: 120%;
-    transform: translate3d(-8px, 0, 0) rotate(-38deg) scale(0.84);
-    opacity: 0;
-  }
-}
-
-@keyframes experience-sakura-path-c {
-  0% {
-    top: -10%;
-    transform: translate3d(-4px, 0, 0) rotate(10deg) scale(0.94);
-    opacity: 0;
-  }
-  4% {
-    opacity: 0.85;
-  }
-  11% {
-    opacity: 0.9;
-  }
-  24% {
-    top: 22%;
-    transform: translate3d(18px, 0, 0) rotate(-18deg) scale(1.01);
-  }
-  48% {
-    top: 46%;
-    transform: translate3d(-14px, 0, 0) rotate(30deg) scale(0.93);
-  }
-  68% {
-    top: 68%;
-    transform: translate3d(14px, 0, 0) rotate(-22deg) scale(1);
-  }
-  88% {
-    top: 94%;
-    transform: translate3d(-12px, 0, 0) rotate(16deg) scale(0.9);
-  }
-  96% {
-    opacity: 0.65;
-  }
-  100% {
-    top: 122%;
-    transform: translate3d(8px, 0, 0) rotate(-32deg) scale(0.82);
-    opacity: 0;
-  }
-}
-
-@keyframes experience-sakura-path-d {
-  0% {
-    top: -7%;
-    transform: translate3d(8px, 0, 0) rotate(-10deg) scale(0.91);
-    opacity: 0;
-  }
-  6% {
-    opacity: 0.88;
-  }
-  14% {
-    opacity: 0.9;
-  }
-  26% {
-    top: 24%;
-    transform: translate3d(-12px, 0, 0) rotate(26deg) scale(1.02);
-  }
-  46% {
-    top: 44%;
-    transform: translate3d(16px, 0, 0) rotate(-22deg) scale(0.95);
-  }
-  66% {
-    top: 66%;
-    transform: translate3d(-18px, 0, 0) rotate(16deg) scale(1);
-  }
-  86% {
-    top: 88%;
-    transform: translate3d(14px, 0, 0) rotate(-26deg) scale(0.93);
-  }
-  95% {
-    opacity: 0.72;
-  }
-  100% {
-    top: 119%;
-    transform: translate3d(-5px, 0, 0) rotate(40deg) scale(0.8);
-=======
 /* Technology river — project narrative rafts (gentle multi-axis drift; ids in `ProjectNarrativeBanners`). Amplitude: `--technology-raft-motion-pct` on `:root`. */
 @keyframes technology-river-raft-float {
   0% {
@@ -404,7 +212,8 @@ body {
 
 .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
 .raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
-.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem {
+.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
+.raft-5-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem {
   opacity: 1;
   height: var(--r1-stem-h1, 1.05rem);
   pointer-events: auto;
@@ -412,7 +221,8 @@ body {
 
 .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
 .raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
-.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
+.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+.raft-5-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
   opacity: 1;
   transform: translate(-50%, 0) scale(1, 1);
   pointer-events: auto;
@@ -703,17 +513,12 @@ body {
   100% {
     top: 88%;
     transform: translate3d(18px, 0, 0) rotate(-48deg);
->>>>>>> recover-detached
     opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-<<<<<<< HEAD
-  .experience-sakura-petal {
-=======
   .experience-sakura-layer .experience-sakura-petal {
->>>>>>> recover-detached
     animation: none !important;
     opacity: 0 !important;
   }
