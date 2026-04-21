@@ -32,8 +32,8 @@ export function ExperienceSakuraPetals() {
         const v = DRIFT_VARIANTS[i % DRIFT_VARIANTS.length];
         const duration = DURATION_MIN + ((i * 5) % DURATION_SPREAD);
         const delay = -((i * 2.3) % 24);
-        const w = 5 + (i % 5);
-        const h = 7 + (i % 5);
+        const w = 9 + ((i*8) % 8);
+        const h = 12 + ((i*10) % 10);
         return (
           <div
             key={i}

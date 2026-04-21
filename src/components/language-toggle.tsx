@@ -9,7 +9,7 @@ const BTN =
 function FlagJapan() {
   return (
     <span
-      className="flex h-7 w-7 items-center justify-center overflow-hidden rounded-sm border border-black/10 bg-white shadow-inner"
+      className="flex h-4 w-7 items-center justify-center overflow-hidden border border-black/10 bg-white shadow-inner"
       aria-hidden
     >
       <svg viewBox="0 0 3 2" className="h-full w-full">
@@ -23,7 +23,7 @@ function FlagJapan() {
 function FlagUs() {
   return (
     <span
-      className="flex h-7 w-[1.05rem] items-center justify-center overflow-hidden rounded-sm border border-black/15 shadow-inner"
+      className="flex h-4 w-7 items-center justify-center overflow-hidden border border-black/10 shadow-inner"
       aria-hidden
     >
       <svg viewBox="0 0 30 16" className="h-full w-full">

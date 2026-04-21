@@ -43,6 +43,14 @@ const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
  */
 const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4", "raft-5"]);
 
+/** External product / project pages (raft slots with overlay + hover). */
+const PROJECT_RAFT_EXTERNAL_URL: Partial<Record<RaftOverlayId, string>> = {
+  "raft-1": "https://flowiseai.com/",
+  "raft-2": "https://www.hellohistory.ai/",
+  "raft-4": "https://www.tability.io/",
+  "raft-5": "https://lu.ma/",
+};
+
 const RAFT_HOVER_LAYOUT = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
 
 type RaftHoverDetailId = "raft-1" | "raft-2" | "raft-4" | "raft-5";
@@ -415,73 +423,72 @@ export function ProjectNarrativeBanners({
             </article>
           ) : null;
 
-        return (
-          <div
-            key={id}
-            className={`absolute ${
-              riverFloat
-                ? ""
-                : "[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))]"
-            } ${
-              raftHoverDetail
-                ? raftHoverDetail.raftId === "raft-2"
-                  ? "raft-2-hover-root pointer-events-auto"
-                  : raftHoverDetail.raftId === "raft-4"
-                    ? "raft-4-hover-root pointer-events-auto"
-                    : raftHoverDetail.raftId === "raft-5"
-                      ? "raft-5-hover-root pointer-events-auto"
-                      : "raft-1-hover-root pointer-events-auto"
-                : ""
-            }`}
-            style={{
-              ...style,
-              ...(raftHoverDetail
-                ? ({
-                    ["--raft-1-lift-z" as string]: String(
-                      RAFT_HOVER_LAYOUT.liftZIndex
-                    ),
-                    ["--r1-stem-w" as string]: `${RAFT_HOVER_LAYOUT.stemWidthPx}px`,
-                    ["--r1-stem-h0" as string]: `${RAFT_HOVER_LAYOUT.stemCollapsedRem}rem`,
-                    ["--r1-stem-h1" as string]: `${RAFT_HOVER_LAYOUT.stemExpandedRem}rem`,
-                  } as CSSProperties)
-                : {}),
-            }}
-            aria-hidden={!hasOverlay}
-            tabIndex={raftHoverDetail ? 0 : undefined}
-            aria-label={
-              raftHoverDetail
-                ? `${raftHoverDetail.copy.title}. ${raftHoverDetail.copy.hoverExplanation}`
-                : undefined
-            }
-          >
-            {hasOverlay && copy && overlayId ? (
-              <>
-                {riverFloat ? (
-                  <div
-                    className="[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))] technology-river-raft-float"
-                    style={{
-                      animationDelay: technologyRiverRaftFloatDelay(id),
-                    }}
-                  >
-                    {raftArticle}
-                  </div>
-                ) : (
-                  raftArticle
-                )}
-                {raftHoverDetail ? (
-                  <ProjectRaftHoverSproutDetail
-                    raftId={raftHoverDetail.raftId}
-                    imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[raftHoverDetail.raftId]}
-                    title={raftHoverDetail.copy.title}
-                    stackLine={raftHoverDetail.copy.stackLine}
-                    explanation={raftHoverDetail.copy.hoverExplanation}
-                    showDay={showDay}
-                    locale={locale}
-                    langReady={langReady}
-                  />
-                ) : null}
-              </>
-            ) : (
+        const raftExternalUrl =
+          overlayId != null ? PROJECT_RAFT_EXTERNAL_URL[overlayId] : undefined;
+        const raftLinkNewTabHint =
+          langReady && locale === "en"
+            ? "Opens in a new tab."
+            : "新しいタブで開きます。";
+
+        const raftSlotClassName = `absolute ${
+          riverFloat
+            ? ""
+            : "[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))]"
+        } ${
+          raftHoverDetail
+            ? raftHoverDetail.raftId === "raft-2"
+              ? "raft-2-hover-root pointer-events-auto"
+              : raftHoverDetail.raftId === "raft-4"
+                ? "raft-4-hover-root pointer-events-auto"
+                : raftHoverDetail.raftId === "raft-5"
+                  ? "raft-5-hover-root pointer-events-auto"
+                  : "raft-1-hover-root pointer-events-auto"
+            : ""
+        }${raftExternalUrl ? " cursor-pointer" : ""}`;
+
+        const raftSlotStyle: CSSProperties = {
+          ...style,
+          ...(raftHoverDetail
+            ? ({
+                ["--raft-1-lift-z" as string]: String(
+                  RAFT_HOVER_LAYOUT.liftZIndex
+                ),
+                ["--r1-stem-w" as string]: `${RAFT_HOVER_LAYOUT.stemWidthPx}px`,
+                ["--r1-stem-h0" as string]: `${RAFT_HOVER_LAYOUT.stemCollapsedRem}rem`,
+                ["--r1-stem-h1" as string]: `${RAFT_HOVER_LAYOUT.stemExpandedRem}rem`,
+              } as CSSProperties)
+            : {}),
+        };
+
+        const raftSlotChildren =
+          hasOverlay && copy && overlayId ? (
+            <>
+              {riverFloat ? (
+                <div
+                  className="[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))] technology-river-raft-float"
+                  style={{
+                    animationDelay: technologyRiverRaftFloatDelay(id),
+                  }}
+                >
+                  {raftArticle}
+                </div>
+              ) : (
+                raftArticle
+              )}
+              {raftHoverDetail ? (
+                <ProjectRaftHoverSproutDetail
+                  raftId={raftHoverDetail.raftId}
+                  imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[raftHoverDetail.raftId]}
+                  title={raftHoverDetail.copy.title}
+                  stackLine={raftHoverDetail.copy.stackLine}
+                  explanation={raftHoverDetail.copy.hoverExplanation}
+                  showDay={showDay}
+                  locale={locale}
+                  langReady={langReady}
+                />
+              ) : null}
+            </>
+          ) : (
               <div
                 className="relative w-full"
                 style={{ aspectRatio: String(RAFT_ASPECT) }}
@@ -506,7 +513,35 @@ export function ProjectNarrativeBanners({
                   }`}
                 />
               </div>
-            )}
+            );
+
+        return raftExternalUrl && raftHoverDetail ? (
+          <a
+            key={id}
+            href={raftExternalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={raftSlotClassName}
+            style={raftSlotStyle}
+            aria-hidden={!hasOverlay}
+            aria-label={`${raftHoverDetail.copy.title}. ${raftHoverDetail.copy.hoverExplanation} ${raftLinkNewTabHint}`}
+          >
+            {raftSlotChildren}
+          </a>
+        ) : (
+          <div
+            key={id}
+            className={raftSlotClassName}
+            style={raftSlotStyle}
+            aria-hidden={!hasOverlay}
+            tabIndex={raftHoverDetail ? 0 : undefined}
+            aria-label={
+              raftHoverDetail
+                ? `${raftHoverDetail.copy.title}. ${raftHoverDetail.copy.hoverExplanation}`
+                : undefined
+            }
+          >
+            {raftSlotChildren}
           </div>
         );
       })}
