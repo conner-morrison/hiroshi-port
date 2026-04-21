@@ -4,7 +4,7 @@ import Image from "next/image";
 import { portfolioMessages } from "@/i18n/portfolio-messages";
 import { usePortfolioLocale } from "./language-provider";
 
-const GITHUB_PROFILE_URL = "https://github.com/pokemon918";
+const GITHUB_PROFILE_URL = "https://github.com/frozenflux2";
 
 /** Day asset width / height; night PNG letterboxed with `object-contain`. */
 const CATS_ASPECT = 613 / 407;

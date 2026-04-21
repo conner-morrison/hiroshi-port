@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from "react";
 
-const PETAL_COUNT = 14;
+const PETAL_COUNT = 24;
 const DRIFT_VARIANTS = ["a", "b", "c", "d", "e"] as const;
 
 /** Seconds per loop — higher = slower drift (longer time across the band). */

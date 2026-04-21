@@ -4,7 +4,7 @@ import Image from "next/image";
 import { portfolioMessages } from "@/i18n/portfolio-messages";
 import { usePortfolioLocale } from "./language-provider";
 
-const MAILTO = "mailto:hiroshi.kaji@excitox.com";
+const MAILTO = "mailto:hiroshi.kaji@willowtech.me";
 
 /** Day pigeon PNG width / height; night asset letterboxed with `object-contain`. */
 const PIGEON_ASPECT = 298 / 210;
