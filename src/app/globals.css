@@ -23,8 +23,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* Fixed sun/moon only; in-flow header scrolls away */
-  scroll-padding-top: 5rem;
+  /* Fixed sun/moon only; in-flow header scrolls away; respect notches */
+  scroll-padding-top: max(5rem, env(safe-area-inset-top, 0px));
   /* Matches hero sky so subpixel gaps / header padding do not show body #000 as a hairline */
   background-color: #9bbdd4;
 }
@@ -43,6 +43,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  min-width: 0;
 }
 
 body {

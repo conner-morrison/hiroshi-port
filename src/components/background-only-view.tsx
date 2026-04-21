@@ -61,10 +61,10 @@ export function BackgroundOnlyView() {
   const isDay = !ready || theme === "light";
 
   return (
-    <div className="relative w-full bg-black">
+    <div className="relative min-h-dvh min-w-0 w-full overflow-x-clip bg-black">
       <SiteHeader />
       <div
-        className="relative z-0 -mt-[9.75rem] w-full max-w-none bg-black sm:-mt-[10.25rem]"
+        className="relative z-0 -mt-[9.75rem] w-full min-w-0 max-w-none bg-black sm:-mt-[10.25rem]"
         style={{ aspectRatio: `${BG_WIDTH} / ${BG_HEIGHT}` }}
       >
         {/* Native <img>: Next `Image` + `fill` can size to 0 when height comes only from `aspect-ratio`. */}

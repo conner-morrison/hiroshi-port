@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { DocumentTitle } from "@/components/document-title";
 import { LanguageProvider } from "@/components/language-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { englishDisplay } from "@/fonts/english-display";
@@ -16,8 +17,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Day and night landscape backgrounds",
+  title: {
+    default: "Hiroshi Story",
+    template: "%s · Hiroshi Story",
+  },
+  description:
+    "Hiroshi Kaji — senior software engineer portfolio told through day and night landscapes.",
+  applicationName: "Hiroshi Story",
+  openGraph: {
+    title: "Hiroshi Story",
+    description:
+      "Hiroshi Kaji — senior software engineer portfolio told through day and night landscapes.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hiroshi Story",
+    description:
+      "Hiroshi Kaji — senior software engineer portfolio told through day and night landscapes.",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -31,9 +55,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${englishDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-dvh">
+      <body className="min-h-dvh min-w-0 overflow-x-hidden">
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <DocumentTitle />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

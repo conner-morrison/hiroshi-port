@@ -44,7 +44,7 @@ export function AboutIntro({
     locale === "ja" ? "梶裕志のポートレート" : "Portrait of Hiroshi Kaji";
 
   return (
-    <div className="pointer-events-auto relative flex h-full min-h-0 w-full items-center justify-center px-4 py-10 sm:px-80 sm:py-10">
+    <div className="pointer-events-auto relative flex h-full min-h-0 w-full max-w-[100dvw] items-center justify-center py-8 pl-[max(1rem,env(safe-area-inset-left,0px))] pr-[max(1rem,env(safe-area-inset-right,0px))] pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] pt-[max(0.75rem,env(safe-area-inset-top,0px))] sm:py-10 sm:pl-6 sm:pr-6 md:pl-10 md:pr-10 lg:pl-14 lg:pr-14 xl:pl-20 xl:pr-20 2xl:pl-28 2xl:pr-28">
       <AboutFloatingClouds isDay={isDay} ready={ready} />
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-20">
         <div className="relative z-[2] flex w-full shrink-0 justify-center sm:w-2/5 sm:justify-center">

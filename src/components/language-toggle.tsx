@@ -45,7 +45,7 @@ export function LanguageToggle() {
   if (!ready) {
     return (
       <div
-        className="pointer-events-none fixed top-3 left-3 z-50 h-11 w-[5.5rem] rounded-full opacity-0 sm:left-4 sm:top-3.5"
+        className="pointer-events-none fixed left-[max(0.75rem,env(safe-area-inset-left,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-50 h-11 w-[5.5rem] rounded-full opacity-0 sm:left-[max(1rem,env(safe-area-inset-left,0px))] sm:top-[max(0.875rem,env(safe-area-inset-top,0px))]"
         aria-hidden
       />
     );
@@ -53,7 +53,7 @@ export function LanguageToggle() {
 
   return (
     <div
-      className="fixed top-3 left-3 z-50 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 p-1.5 shadow-lg backdrop-blur-md sm:left-4 sm:top-3.5"
+      className="fixed left-[max(0.75rem,env(safe-area-inset-left,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-50 flex max-w-[calc(100dvw-1.5rem)] items-center gap-2 rounded-full border border-white/15 bg-black/35 p-1.5 shadow-lg backdrop-blur-md sm:left-[max(1rem,env(safe-area-inset-left,0px))] sm:top-[max(0.875rem,env(safe-area-inset-top,0px))]"
       role="group"
       aria-label={t.groupAria}
     >

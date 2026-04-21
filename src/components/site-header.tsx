@@ -30,7 +30,7 @@ export function SiteHeader() {
   const day = !themeReady || theme === "light";
 
   return (
-    <header className="relative z-20 flex justify-center px-3 pt-20 pb-3 sm:px-4 sm:pt-[5.25rem] sm:pb-4">
+    <header className="relative z-20 flex justify-center pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))] pt-[max(5rem,env(safe-area-inset-top,0px))] pb-3 sm:pl-4 sm:pr-4 sm:pt-[max(5.25rem,env(safe-area-inset-top,0px))] sm:pb-4">
       <nav
         aria-label={t.navAria}
         className={`flex max-w-4xl flex-wrap items-center justify-center gap-x-1 gap-y-2 rounded-full border px-3 py-2 sm:gap-x-2 sm:px-4 sm:pl-28 sm:pr-24 ${

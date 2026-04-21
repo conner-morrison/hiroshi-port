@@ -15,7 +15,7 @@ export function CelestialThemeToggle() {
   if (!ready) {
     return (
       <div
-        className="pointer-events-none fixed top-3 right-3 z-50 h-16 w-16 rounded-full opacity-0 sm:right-4 sm:top-3.5"
+        className="pointer-events-none fixed right-[max(0.75rem,env(safe-area-inset-right,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-50 h-16 w-16 rounded-full opacity-0 sm:right-[max(1rem,env(safe-area-inset-right,0px))] sm:top-[max(0.875rem,env(safe-area-inset-top,0px))]"
         aria-hidden
       />
     );
@@ -26,7 +26,7 @@ export function CelestialThemeToggle() {
       <button
         type="button"
         onClick={() => setTheme("dark")}
-        className="group fixed top-3 right-3 z-50 flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 shadow-none outline-none ring-2 ring-white/50 backdrop-blur-[2px] focus-visible:ring-4 focus-visible:ring-amber-200 sm:right-4 sm:top-3.5"
+        className="group fixed right-[max(0.75rem,env(safe-area-inset-right,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-50 flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 shadow-none outline-none ring-2 ring-white/50 backdrop-blur-[2px] focus-visible:ring-4 focus-visible:ring-amber-200 sm:right-[max(1rem,env(safe-area-inset-right,0px))] sm:top-[max(0.875rem,env(safe-area-inset-top,0px))]"
         style={{ width: TOGGLE_PX, height: TOGGLE_PX }}
         aria-label={tTheme.toNight}
       >
@@ -56,7 +56,7 @@ export function CelestialThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme("light")}
-      className="group fixed top-3 right-3 z-50 flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 outline-none ring-2 ring-white/25 backdrop-blur-[2px] focus-visible:ring-4 focus-visible:ring-indigo-300 sm:right-4 sm:top-3.5"
+      className="group fixed right-[max(0.75rem,env(safe-area-inset-right,0px))] top-[max(0.75rem,env(safe-area-inset-top,0px))] z-50 flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 outline-none ring-2 ring-white/25 backdrop-blur-[2px] focus-visible:ring-4 focus-visible:ring-indigo-300 sm:right-[max(1rem,env(safe-area-inset-right,0px))] sm:top-[max(0.875rem,env(safe-area-inset-top,0px))]"
       style={{ width: TOGGLE_PX, height: TOGGLE_PX }}
       aria-label={tTheme.toDay}
     >
