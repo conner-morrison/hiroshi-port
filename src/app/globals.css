@@ -5,6 +5,12 @@
 :root {
   --background: #000000;
   --foreground: #fafafa;
+  /**
+   * Technology river raft float — **motion scale (0–100)**. Same keyframe path & timing;
+   * only amplitude changes (`translate` / `rotate` / Z wobble). `0` = no movement.
+   * @see `@keyframes technology-river-raft-float`
+   */
+  --technology-raft-motion-pct: 200;
 }
 
 @theme inline {
@@ -12,12 +18,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-english-display: var(--font-english-display);
 }
 
 html {
   scroll-behavior: smooth;
   /* Fixed sun/moon only; in-flow header scrolls away */
   scroll-padding-top: 5rem;
+  /* Matches hero sky so subpixel gaps / header padding do not show body #000 as a hairline */
+  background-color: #9bbdd4;
+}
+
+html.dark {
+  background-color: #060d14;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -33,7 +46,7 @@ body {
 }
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
@@ -66,6 +79,7 @@ body {
   }
 }
 
+<<<<<<< HEAD
 /* --- Experience section: sakura petals (wind-like drift) --- */
 .experience-sakura-petal {
   position: absolute;
@@ -256,12 +270,450 @@ body {
   100% {
     top: 119%;
     transform: translate3d(-5px, 0, 0) rotate(40deg) scale(0.8);
+=======
+/* Technology river — project narrative rafts (gentle multi-axis drift; ids in `ProjectNarrativeBanners`). Amplitude: `--technology-raft-motion-pct` on `:root`. */
+@keyframes technology-river-raft-float {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  17% {
+    transform: translate3d(
+        calc(0.32% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.42% * var(--technology-raft-motion-pct) / 100),
+        calc(1.25px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(0.22deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(-0.32deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(0.38deg * var(--technology-raft-motion-pct) / 100));
+  }
+  34% {
+    transform: translate3d(
+        calc(-0.26% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.18% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.9px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(-0.18deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(0.28deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(-0.32deg * var(--technology-raft-motion-pct) / 100));
+  }
+  52% {
+    transform: translate3d(
+        calc(0.18% * var(--technology-raft-motion-pct) / 100),
+        calc(0.48% * var(--technology-raft-motion-pct) / 100),
+        calc(1.6px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(0.28deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(0.22deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(0.18deg * var(--technology-raft-motion-pct) / 100));
+  }
+  69% {
+    transform: translate3d(
+        calc(-0.34% * var(--technology-raft-motion-pct) / 100),
+        calc(0.22% * var(--technology-raft-motion-pct) / 100),
+        calc(-1.2px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(-0.12deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(-0.26deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(-0.24deg * var(--technology-raft-motion-pct) / 100));
+  }
+  86% {
+    transform: translate3d(
+        calc(0.12% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.28% * var(--technology-raft-motion-pct) / 100),
+        calc(0.5px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(0.15deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(0.18deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(0.14deg * var(--technology-raft-motion-pct) / 100));
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+.technology-river-raft-float {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation: technology-river-raft-float 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-river-raft-float {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+
+/* Raft-2 / raft-4 / raft-5 hover: lift narrative layer above section glass headings and river links */
+.project-narrative-banners-layer:has(.raft-2-hover-root:hover),
+.project-narrative-banners-layer:has(.raft-2-hover-root:focus-within),
+.project-narrative-banners-layer:has(.raft-4-hover-root:hover),
+.project-narrative-banners-layer:has(.raft-4-hover-root:focus-within),
+.project-narrative-banners-layer:has(.raft-5-hover-root:hover),
+.project-narrative-banners-layer:has(.raft-5-hover-root:focus-within) {
+  z-index: 25;
+}
+
+/* Raft hover — glass panel (`ProjectNarrativeBanners`, `project-raft-1-hover-panel-layout.ts`) */
+.raft-1-hover-root:is(:hover, :focus-within),
+.raft-2-hover-root:is(:hover, :focus-within),
+.raft-4-hover-root:is(:hover, :focus-within),
+.raft-5-hover-root:is(:hover, :focus-within) {
+  z-index: var(--raft-1-lift-z, 48);
+}
+
+.raft-1-sprout-stem {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: var(--r1-stem-w, 2px);
+  height: var(--r1-stem-h0, 0.65rem);
+  margin-top: -1px;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: linear-gradient(
+    180deg,
+    rgba(34, 120, 70, 0.95) 0%,
+    rgba(74, 160, 100, 0.85) 55%,
+    rgba(180, 220, 160, 0.75) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    height 0.32s cubic-bezier(0.34, 1.45, 0.64, 1),
+    transform 0.32s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.raft-1-sprout-panel {
+  position: absolute;
+  left: 50%;
+  z-index: 3;
+  width: var(--r1-panel-width, min(92vw, 72rem));
+  max-width: var(--r1-panel-max-w, min(92vw, 72rem));
+  min-width: var(--r1-panel-min-w, min(88vw, max(30rem, 42vw)));
+  transform: translate(-50%, 10px) scale(0.96, 0.42);
+  transform-origin: 50% 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.32s ease,
+    transform 0.4s cubic-bezier(0.33, 1.22, 0.48, 1);
+}
+
+.raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
+.raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem,
+.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-stem {
+  opacity: 1;
+  height: var(--r1-stem-h1, 1.05rem);
+  pointer-events: auto;
+}
+
+.raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+.raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+.raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1, 1);
+  pointer-events: auto;
+}
+
+/* Image cell — width % / height % from vars on `.raft-1-sprout-panel` (`project-raft-1-hover-panel-layout.ts`) */
+.raft-1-sprout-panel__media {
+  position: relative;
+  min-width: 0;
+  width: var(--r1-img-w-pct, 40%);
+  height: var(--r1-img-h-pct, 80%);
+}
+
+@media (max-width: 639px) {
+  .raft-1-sprout-panel__media {
+    width: 100%;
+    height: auto;
+    min-height: 8rem;
+    max-height: min(48vh, 20rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raft-1-sprout-stem,
+  .raft-1-sprout-panel {
+    transition: none !important;
+  }
+
+  .raft-1-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+  .raft-2-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+  .raft-4-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel,
+  .raft-5-hover-root:is(:hover, :focus-within) .raft-1-sprout-panel {
+    transform: translate(-50%, 0) scale(1, 1);
+  }
+}
+
+/* Experience section — sakura petals (wind varies per keyframe set) */
+.experience-sakura-petal {
+  position: absolute;
+  border-radius: 130% 75% 120% 85%;
+  background: linear-gradient(
+    145deg,
+    #fff5f9 0%,
+    #fbcfe8 35%,
+    #f9a8d4 65%,
+    #ec4899 100%
+  );
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  opacity: 0.92;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.experience-sakura-drift-a {
+  animation-name: experience-sakura-drift-a;
+}
+.experience-sakura-drift-b {
+  animation-name: experience-sakura-drift-b;
+}
+.experience-sakura-drift-c {
+  animation-name: experience-sakura-drift-c;
+}
+.experience-sakura-drift-d {
+  animation-name: experience-sakura-drift-d;
+}
+.experience-sakura-drift-e {
+  animation-name: experience-sakura-drift-e;
+}
+
+/* Vertical = `top` through the section; horizontal flutter = translateX only (longer zigzag path). */
+@keyframes experience-sakura-drift-a {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.95;
+  }
+  12% {
+    top: 10%;
+    transform: translate3d(22px, 0, 0) rotate(32deg);
+  }
+  24% {
+    top: 24%;
+    transform: translate3d(-20px, 0, 0) rotate(-24deg);
+  }
+  36% {
+    top: 38%;
+    transform: translate3d(28px, 0, 0) rotate(42deg);
+  }
+  48% {
+    top: 52%;
+    transform: translate3d(-26px, 0, 0) rotate(-36deg);
+  }
+  60% {
+    top: 64%;
+    transform: translate3d(18px, 0, 0) rotate(28deg);
+  }
+  72% {
+    top: 76%;
+    transform: translate3d(-14px, 0, 0) rotate(-18deg);
+  }
+  86% {
+    top: 88%;
+    transform: translate3d(10px, 0, 0) rotate(22deg);
+    opacity: 0.82;
+  }
+  100% {
+    top: 100%;
+    transform: translate3d(-6px, 0, 0) rotate(48deg);
+    opacity: 0;
+  }
+}
+
+/* b–e use the same time stops as `a` (12%…86%) so path length / flutter density matches; only wind pattern differs. */
+@keyframes experience-sakura-drift-b {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(12deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.9;
+  }
+  12% {
+    top: 8%;
+    transform: translate3d(-28px, 0, 0) rotate(-38deg);
+  }
+  24% {
+    top: 20%;
+    transform: translate3d(24px, 0, 0) rotate(44deg);
+  }
+  36% {
+    top: 36%;
+    transform: translate3d(-32px, 0, 0) rotate(-30deg);
+  }
+  48% {
+    top: 44%;
+    transform: translate3d(26px, 0, 0) rotate(36deg);
+  }
+  60% {
+    top: 61%;
+    transform: translate3d(-22px, 0, 0) rotate(-22deg);
+  }
+  72% {
+    top: 72%;
+    transform: translate3d(20px, 0, 0) rotate(40deg);
+  }
+  86% {
+    top: 82%;
+    transform: translate3d(-16px, 0, 0) rotate(-28deg);
+    opacity: 0.75;
+  }
+  100% {
+    top: 90%;
+    transform: translate3d(12px, 0, 0) rotate(-42deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-c {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.92;
+  }
+  12% {
+    top: 11%;
+    transform: translate3d(30px, 0, 0) rotate(48deg);
+  }
+  24% {
+    top: 28%;
+    transform: translate3d(-28px, 0, 0) rotate(-44deg);
+  }
+  36% {
+    top: 36%;
+    transform: translate3d(28px, 0, 0) rotate(40deg);
+  }
+  48% {
+    top: 50%;
+    transform: translate3d(-30px, 0, 0) rotate(-36deg);
+  }
+  60% {
+    top: 64%;
+    transform: translate3d(24px, 0, 0) rotate(32deg);
+  }
+  72% {
+    top: 76%;
+    transform: translate3d(-22px, 0, 0) rotate(-28deg);
+  }
+  100% {
+    top: 95%;
+    transform: translate3d(-20px, 0, 0) rotate(-52deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-d {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.88;
+  }
+  12% {
+    top: 9%;
+    transform: translate3d(-20px, 0, 0) rotate(26deg);
+  }
+  24% {
+    top: 26%;
+    transform: translate3d(32px, 0, 0) rotate(-34deg);
+  }
+  36% {
+    top: 40%;
+    transform: translate3d(-26px, 0, 0) rotate(40deg);
+  }
+  48% {
+    top: 52%;
+    transform: translate3d(24px, 0, 0) rotate(-28deg);
+  }
+  60% {
+    top: 62%;
+    transform: translate3d(-22px, 0, 0) rotate(34deg);
+  }
+  72% {
+    top: 78%;
+    transform: translate3d(18px, 0, 0) rotate(-22deg);
+  }
+  86% {
+    top: 88%;
+    transform: translate3d(-14px, 0, 0) rotate(24deg);
+    opacity: 0.8;
+  }
+  100% {
+    top: 98%;
+    transform: translate3d(10px, 0, 0) rotate(55deg);
+    opacity: 0;
+  }
+}
+
+@keyframes experience-sakura-drift-e {
+  0% {
+    top: -6%;
+    transform: translate3d(0, 0, 0) rotate(22deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.94;
+  }
+  12% {
+    top: 12%;
+    transform: translate3d(26px, 0, 0) rotate(-42deg);
+  }
+  24% {
+    top: 26%;
+    transform: translate3d(-30px, 0, 0) rotate(38deg);
+  }
+  36% {
+    top: 38%;
+    transform: translate3d(24px, 0, 0) rotate(-32deg);
+  }
+  48% {
+    top: 52%;
+    transform: translate3d(-26px, 0, 0) rotate(46deg);
+  }
+  60% {
+    top: 60%;
+    transform: translate3d(22px, 0, 0) rotate(-26deg);
+  }
+  72% {
+    top: 72%;
+    transform: translate3d(-18px, 0, 0) rotate(34deg);
+  }
+  86% {
+    top: 80%;
+    transform: translate3d(12px, 0, 0) rotate(-30deg);
+    opacity: 0.72;
+  }
+  100% {
+    top: 88%;
+    transform: translate3d(18px, 0, 0) rotate(-48deg);
+>>>>>>> recover-detached
     opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+<<<<<<< HEAD
   .experience-sakura-petal {
+=======
+  .experience-sakura-layer .experience-sakura-petal {
+>>>>>>> recover-detached
     animation: none !important;
     opacity: 0 !important;
   }

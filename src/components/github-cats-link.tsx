@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { portfolioMessages } from "@/i18n/portfolio-messages";
+import { usePortfolioLocale } from "./language-provider";
 
 const GITHUB_PROFILE_URL = "https://github.com/pokemon918";
 
@@ -12,6 +16,8 @@ export function GithubCatsLink({
   isDay: boolean;
   ready: boolean;
 }) {
+  const { locale, ready: langReady } = usePortfolioLocale();
+  const t = portfolioMessages[langReady ? locale : "ja"].links;
   const showDay = !ready || isDay;
 
   return (
@@ -21,11 +27,11 @@ export function GithubCatsLink({
       rel="noopener noreferrer"
       className="absolute z-[20] block w-[15%] cursor-pointer [filter:drop-shadow(0_16px_22px_rgba(0,0,0,0.42))] transition-transform duration-200 hover:scale-[1.03] focus-visible:scale-[1.03] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-200"
       style={{
-        left: "25%",
-        bottom: "10%",
+        left: "75%",
+        bottom: "11%",
         transform: "translateX(-50%) translateY(-5%)",
       }}
-      aria-label="Open GitHub profile pokemon918"
+      aria-label={t.github}
     >
       <div
         className="relative w-full"

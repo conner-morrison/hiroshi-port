@@ -1,12 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import { portfolioMessages } from "@/i18n/portfolio-messages";
+import { usePortfolioLocale } from "./language-provider";
 import { usePortfolioTheme } from "./theme-provider";
 
 const TOGGLE_PX = 72;
 
 export function CelestialThemeToggle() {
   const { theme, setTheme, ready } = usePortfolioTheme();
+  const { locale, ready: langReady } = usePortfolioLocale();
+  const tTheme = portfolioMessages[langReady ? locale : "ja"].theme;
 
   if (!ready) {
     return (
@@ -24,7 +28,7 @@ export function CelestialThemeToggle() {
         onClick={() => setTheme("dark")}
         className="group fixed top-3 right-3 z-50 flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 shadow-none outline-none ring-2 ring-white/50 backdrop-blur-[2px] focus-visible:ring-4 focus-visible:ring-amber-200 sm:right-4 sm:top-3.5"
         style={{ width: TOGGLE_PX, height: TOGGLE_PX }}
-        aria-label="Switch to night mode"
+        aria-label={tTheme.toNight}
       >
         <span
           className="relative block transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
@@ -54,7 +58,7 @@ export function CelestialThemeToggle() {
       onClick={() => setTheme("light")}
       className="group fixed top-3 right-3 z-50 flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 outline-none ring-2 ring-white/25 backdrop-blur-[2px] focus-visible:ring-4 focus-visible:ring-indigo-300 sm:right-4 sm:top-3.5"
       style={{ width: TOGGLE_PX, height: TOGGLE_PX }}
-      aria-label="Switch to day mode"
+      aria-label={tTheme.toDay}
     >
       <span
         className="relative block transition-transform duration-300 group-hover:scale-105 group-active:scale-95"
