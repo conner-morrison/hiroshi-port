@@ -43,7 +43,9 @@ const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
  */
 const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4", "raft-5"]);
 
-const RAFT_1_HOVER_LAYOUT = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
+const RAFT_HOVER_LAYOUT = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
+
+type RaftHoverDetailId = "raft-1" | "raft-2";
 
 function technologyRiverRaftFloatDelay(id: string): string {
   if (id === "raft-1") return "0s";
@@ -131,17 +133,17 @@ function ProjectRaftOverlaySlot({
         }`}
       />
       <div
-        className={`pointer-events-none absolute z-[1] box-border flex min-h-0 items-stretch ${
+        className={`pointer-events-none absolute z-[1] box-border flex h-full min-h-0 items-stretch ${
           layout.overlayRowReverse ? "flex-row-reverse" : "flex-row"
         }`}
         style={overlayStyle(layout)}
       >
         <div
-          className="relative h-[70%] min-h-0 shrink-0 self-stretch overflow-hidden rounded-md ring-1 ring-black/20 ring-offset-1 ring-offset-transparent dark:ring-white/25"
+          className="relative flex h-full min-h-0 shrink-0 items-center justify-center self-stretch overflow-hidden rounded-md ring-1 ring-black/20 ring-offset-1 ring-offset-transparent dark:ring-white/25"
           style={{ width: `${layout.imageColumnWidthPct}%` }}
         >
           <div
-            className="relative h-full w-full"
+            className="relative h-[70%] min-h-[2.5rem] w-full"
             style={{
               transform:
                 layout.imageTranslateYPct !== 0
@@ -195,7 +197,8 @@ function ProjectRaftOverlaySlot({
   );
 }
 
-function Raft1HoverSproutDetail({
+function ProjectRaftHoverSproutDetail({
+  raftId,
   imageSrc,
   title,
   stackLine,
@@ -204,6 +207,7 @@ function Raft1HoverSproutDetail({
   locale,
   langReady,
 }: {
+  raftId: RaftHoverDetailId;
   imageSrc: string;
   title: string;
   stackLine: string;
@@ -213,7 +217,7 @@ function Raft1HoverSproutDetail({
   langReady: boolean;
 }) {
   const L = PROJECT_RAFT_1_HOVER_PANEL_LAYOUT;
-  const raftLayout = PROJECT_RAFT_OVERLAY_LAYOUT["raft-1"];
+  const raftLayout = PROJECT_RAFT_OVERLAY_LAYOUT[raftId];
   const useSerif =
     Boolean(langReady && locale === "en") && raftLayout.useSerifWhenEnglish;
   const titleFont = useSerif ? englishDisplay.className : "font-sans";
@@ -266,14 +270,14 @@ function Raft1HoverSproutDetail({
         style={panelStyle}
       >
         <div
-          className="flex min-h-0 min-w-0 flex-1 flex-col items-stretch sm:flex-row sm:items-stretch"
+          className="flex h-full min-h-0 min-w-0 flex-1 flex-col items-stretch sm:flex-row sm:items-stretch"
           style={{ gap: `${L.columnGapRem}rem` }}
         >
           <div
             className="raft-1-sprout-panel__media relative w-full shrink-0 overflow-hidden self-center ring-1 ring-black/15 dark:ring-white/20 sm:w-auto sm:self-center"
             style={imageCellStyle}
           >
-            <div className="pointer-events-none absolute inset-0 min-h-0 min-w-0">
+            <div className="pointer-events-none relative min-h-[8rem] w-full min-w-0 sm:absolute sm:inset-0 sm:h-auto sm:min-h-0">
               <Image
                 src={imageSrc}
                 alt=""
@@ -286,7 +290,7 @@ function Raft1HoverSproutDetail({
                 style={{
                   objectPosition: L.imageObjectPosition,
                 }}
-                sizes="(max-width: 640px) 90vw, 520px"
+                sizes="(max-width: 639px) 90vw, 520px"
               />
             </div>
           </div>
@@ -385,7 +389,12 @@ export function ProjectNarrativeBanners({
                     : null;
 
         const riverFloat = TECHNOLOGY_RIVER_RAFT_IDS.has(id);
-        const raft1Hover = id === "raft-1" && hasOverlay && copy;
+        const raftHoverDetail =
+          id === "raft-1" && hasOverlay && copy && overlayId === "raft-1"
+            ? { raftId: "raft-1" as const, copy: t.projectNarrative.raft1 }
+            : id === "raft-2" && hasOverlay && copy && overlayId === "raft-2"
+              ? { raftId: "raft-2" as const, copy: t.projectNarrative.raft2 }
+              : null;
 
         const raftArticle =
           hasOverlay && copy && overlayId ? (
@@ -409,25 +418,25 @@ export function ProjectNarrativeBanners({
               riverFloat
                 ? ""
                 : "[filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))]"
-            } ${raft1Hover ? "raft-1-hover-root pointer-events-auto" : ""}`}
+            } ${raftHoverDetail ? "raft-1-hover-root pointer-events-auto" : ""}`}
             style={{
               ...style,
-              ...(raft1Hover
+              ...(raftHoverDetail
                 ? ({
                     ["--raft-1-lift-z" as string]: String(
-                      RAFT_1_HOVER_LAYOUT.liftZIndex
+                      RAFT_HOVER_LAYOUT.liftZIndex
                     ),
-                    ["--r1-stem-w" as string]: `${RAFT_1_HOVER_LAYOUT.stemWidthPx}px`,
-                    ["--r1-stem-h0" as string]: `${RAFT_1_HOVER_LAYOUT.stemCollapsedRem}rem`,
-                    ["--r1-stem-h1" as string]: `${RAFT_1_HOVER_LAYOUT.stemExpandedRem}rem`,
+                    ["--r1-stem-w" as string]: `${RAFT_HOVER_LAYOUT.stemWidthPx}px`,
+                    ["--r1-stem-h0" as string]: `${RAFT_HOVER_LAYOUT.stemCollapsedRem}rem`,
+                    ["--r1-stem-h1" as string]: `${RAFT_HOVER_LAYOUT.stemExpandedRem}rem`,
                   } as CSSProperties)
                 : {}),
             }}
             aria-hidden={!hasOverlay}
-            tabIndex={raft1Hover ? 0 : undefined}
+            tabIndex={raftHoverDetail ? 0 : undefined}
             aria-label={
-              raft1Hover
-                ? `${t.projectNarrative.raft1.title}. ${t.projectNarrative.raft1.hoverExplanation}`
+              raftHoverDetail
+                ? `${raftHoverDetail.copy.title}. ${raftHoverDetail.copy.hoverExplanation}`
                 : undefined
             }
           >
@@ -445,12 +454,13 @@ export function ProjectNarrativeBanners({
                 ) : (
                   raftArticle
                 )}
-                {id === "raft-1" ? (
-                  <Raft1HoverSproutDetail
-                    imageSrc={PROJECT_RAFT_OVERLAY_IMAGE["raft-1"]}
-                    title={t.projectNarrative.raft1.title}
-                    stackLine={t.projectNarrative.raft1.stackLine}
-                    explanation={t.projectNarrative.raft1.hoverExplanation}
+                {raftHoverDetail ? (
+                  <ProjectRaftHoverSproutDetail
+                    raftId={raftHoverDetail.raftId}
+                    imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[raftHoverDetail.raftId]}
+                    title={raftHoverDetail.copy.title}
+                    stackLine={raftHoverDetail.copy.stackLine}
+                    explanation={raftHoverDetail.copy.hoverExplanation}
                     showDay={showDay}
                     locale={locale}
                     langReady={langReady}

@@ -147,7 +147,7 @@ body {
   }
 }
 
-/* Raft-1 hover — glass panel (`ProjectNarrativeBanners`, `project-raft-1-hover-panel-layout.ts`) */
+/* Raft hover (raft-1 / raft-2) — glass panel (`ProjectNarrativeBanners`, `project-raft-1-hover-panel-layout.ts`) */
 .raft-1-hover-root:is(:hover, :focus-within) {
   z-index: var(--raft-1-lift-z, 48);
 }

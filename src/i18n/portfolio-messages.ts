@@ -65,6 +65,8 @@ export const portfolioMessages = {
       raft2: {
         title: "過去の人物とチャット",
         stackLine: "ChatGPT、NLP、iOS、React Native、Android",
+        hoverExplanation:
+          "HelloHistoryは、歴史上の人物と生き生きとした対話ができるAI搭載のモバイルアプリです。史上最も影響力のある人物たちから、人生・歴史・世界について個人的な視点を得られます。",
       },
       raft3: {
         title: "AIオペレーティングシステム",
@@ -147,6 +149,8 @@ export const portfolioMessages = {
       raft2: {
         title: "Chat with the past",
         stackLine: "ChatGPT, NLP, iOS, React Native, Android",
+        hoverExplanation:
+          "HelloHistory is An AI powered Mobile App that lets you have life-like conversations with historical figures. Get a personal perspective on life, history, and the world from some of the most influential figures of all time.",
       },
       raft3: {
         title: "AI Operating System",
