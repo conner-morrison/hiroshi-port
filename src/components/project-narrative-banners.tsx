@@ -38,11 +38,13 @@ const PROJECT_SLOTS: { id: string; style: SlotStyle }[] = [
 
 /**
  * Narrative rafts that sit over the **Technology** river band (~scroll 70–79%).
- * They get a gentle float animation; add ids (e.g. `"raft-3"`) to include more slots.
+ * Motion amplitude: **`--technology-raft-motion-pct`** on `:root` in `globals.css` (0–100).
  */
 const TECHNOLOGY_RIVER_RAFT_IDS = new Set<string>(["raft-1", "raft-2", "raft-4", "raft-5"]);
 
 function technologyRiverRaftFloatDelay(id: string): string {
+  if (id === "raft-1") return "0s";
+  if (id === "raft-2") return "0.675s";
   if (id === "raft-4") return "0s";
   if (id === "raft-5") return "1.35s";
   return "0s";

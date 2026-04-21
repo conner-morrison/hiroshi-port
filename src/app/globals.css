@@ -5,6 +5,12 @@
 :root {
   --background: #000000;
   --foreground: #fafafa;
+  /**
+   * Technology river raft float — **motion scale (0–100)**. Same keyframe path & timing;
+   * only amplitude changes (`translate` / `rotate` / Z wobble). `0` = no movement.
+   * @see `@keyframes technology-river-raft-float`
+   */
+  --technology-raft-motion-pct: 200;
 }
 
 @theme inline {
@@ -67,30 +73,60 @@ body {
   }
 }
 
-/* Technology river — project narrative rafts (gentle multi-axis drift; ids in `ProjectNarrativeBanners`) */
+/* Technology river — project narrative rafts (gentle multi-axis drift; ids in `ProjectNarrativeBanners`). Amplitude: `--technology-raft-motion-pct` on `:root`. */
 @keyframes technology-river-raft-float {
   0% {
     transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   17% {
-    transform: translate3d(0.32%, -0.42%, 1.25px) rotateX(0.22deg) rotateY(-0.32deg)
-      rotateZ(0.38deg);
+    transform: translate3d(
+        calc(0.32% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.42% * var(--technology-raft-motion-pct) / 100),
+        calc(1.25px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(0.22deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(-0.32deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(0.38deg * var(--technology-raft-motion-pct) / 100));
   }
   34% {
-    transform: translate3d(-0.26%, -0.18%, -0.9px) rotateX(-0.18deg) rotateY(0.28deg)
-      rotateZ(-0.32deg);
+    transform: translate3d(
+        calc(-0.26% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.18% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.9px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(-0.18deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(0.28deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(-0.32deg * var(--technology-raft-motion-pct) / 100));
   }
   52% {
-    transform: translate3d(0.18%, 0.48%, 1.6px) rotateX(0.28deg) rotateY(0.22deg)
-      rotateZ(0.18deg);
+    transform: translate3d(
+        calc(0.18% * var(--technology-raft-motion-pct) / 100),
+        calc(0.48% * var(--technology-raft-motion-pct) / 100),
+        calc(1.6px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(0.28deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(0.22deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(0.18deg * var(--technology-raft-motion-pct) / 100));
   }
   69% {
-    transform: translate3d(-0.34%, 0.22%, -1.2px) rotateX(-0.12deg) rotateY(-0.26deg)
-      rotateZ(-0.24deg);
+    transform: translate3d(
+        calc(-0.34% * var(--technology-raft-motion-pct) / 100),
+        calc(0.22% * var(--technology-raft-motion-pct) / 100),
+        calc(-1.2px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(-0.12deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(-0.26deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(-0.24deg * var(--technology-raft-motion-pct) / 100));
   }
   86% {
-    transform: translate3d(0.12%, -0.28%, 0.5px) rotateX(0.15deg) rotateY(0.18deg)
-      rotateZ(0.14deg);
+    transform: translate3d(
+        calc(0.12% * var(--technology-raft-motion-pct) / 100),
+        calc(-0.28% * var(--technology-raft-motion-pct) / 100),
+        calc(0.5px * var(--technology-raft-motion-pct) / 100)
+      )
+      rotateX(calc(0.15deg * var(--technology-raft-motion-pct) / 100))
+      rotateY(calc(0.18deg * var(--technology-raft-motion-pct) / 100))
+      rotateZ(calc(0.14deg * var(--technology-raft-motion-pct) / 100));
   }
   100% {
     transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
