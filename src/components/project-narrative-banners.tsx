@@ -239,13 +239,14 @@ export function ProjectNarrativeBanners({
                     : null;
 
         const riverFloat = TECHNOLOGY_RIVER_RAFT_IDS.has(id);
+        const raft1Hover = id === "raft-1" && hasOverlay && copy;
 
         return (
           <div
             key={id}
             className={`absolute [filter:drop-shadow(0_10px_14px_rgba(0,0,0,0.35))] ${
               riverFloat ? "technology-river-raft-float" : ""
-            }`}
+            } ${raft1Hover ? "raft-1-hover-root pointer-events-auto" : ""}`}
             style={{
               ...style,
               ...(riverFloat
@@ -253,19 +254,41 @@ export function ProjectNarrativeBanners({
                 : {}),
             }}
             aria-hidden={!hasOverlay}
+            tabIndex={raft1Hover ? 0 : undefined}
+            aria-label={
+              raft1Hover ? `${copy.title}. ${copy.stackLine}` : undefined
+            }
           >
             {hasOverlay && copy && overlayId ? (
-              <article className="relative w-full">
-                <ProjectRaftOverlaySlot
-                  imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[overlayId]}
-                  title={copy.title}
-                  stackLine={copy.stackLine}
-                  layout={PROJECT_RAFT_OVERLAY_LAYOUT[overlayId]}
-                  showDay={showDay}
-                  locale={locale}
-                  langReady={langReady}
-                />
-              </article>
+              <>
+                <article className="relative w-full">
+                  <ProjectRaftOverlaySlot
+                    imageSrc={PROJECT_RAFT_OVERLAY_IMAGE[overlayId]}
+                    title={copy.title}
+                    stackLine={copy.stackLine}
+                    layout={PROJECT_RAFT_OVERLAY_LAYOUT[overlayId]}
+                    showDay={showDay}
+                    locale={locale}
+                    langReady={langReady}
+                  />
+                </article>
+                {id === "raft-1" ? (
+                  <>
+                    <div className="raft-1-sprout-stem" aria-hidden />
+                    <div
+                      className="raft-1-sprout-panel text-left text-[0.72rem] leading-snug text-stone-800 shadow-sm dark:text-stone-100"
+                      role="tooltip"
+                    >
+                      <p className="font-semibold tracking-wide text-emerald-950 dark:text-emerald-100">
+                        {copy.title}
+                      </p>
+                      <p className="mt-1 text-[0.68rem] font-medium text-stone-700 dark:text-stone-300">
+                        {copy.stackLine}
+                      </p>
+                    </div>
+                  </>
+                ) : null}
+              </>
             ) : (
               <div
                 className="relative w-full"
